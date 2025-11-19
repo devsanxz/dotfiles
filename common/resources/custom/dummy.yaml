@@ -1,0 +1,13 @@
+father:
+  first-son:
+    feat1: "whatever"
+    feat2: "foo"
+    feat3: "bar"
+  second-son:
+    feat1: "none"
+    feat2: "b"
+    feat3: "yo"
+  third-son:
+    feat1: "wazzaaa"
+    feat2: "aaa"
+    feat3: "aap"

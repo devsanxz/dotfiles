@@ -1,0 +1,117 @@
+# =============================================================================
+# COLORS.YML - FONTE DE VERDADE MESTRA PARA O SISTEMA DE CORES
+# =============================================================================
+# Este ficheiro define a arquitetura de cores completa, desde a paleta
+# abstrata até aos mapeamentos semânticos para realce de sintaxe.
+# Foi concebido para ser processado por um script de automação (ex: Python com
+# Jinja2) para gerar ficheiros de configuração específicos para cada aplicação.
+
+# -----------------------------------------------------------------------------
+# Secção 1: Paleta de Cores Abstrata
+# -----------------------------------------------------------------------------
+# Define todas as cores base do sistema com nomes agnósticos.
+# A alteração de um valor aqui irá propagar-se por todo o sistema.
+# Paleta inspirada em temas modernos como Dracula e One Dark, com foco em
+# contraste e distinção perceptual, em conformidade com as diretrizes WCAG.
+palette:
+  # Cores Neutras e de Base
+  black:          '#282a36'  # Um cinzento muito escuro, não preto puro, para fundo.
+  dark_grey:      '#44475a'  # Cinzento escuro para elementos de UI secundários.
+  grey:           '#6272a4'  # Cinzento médio para comentários e texto de apoio.
+  light_grey:     '#999999'  # Cinzento claro para pontuação e operadores.
+  white:          '#f8f8f2'  # Um branco suave, não puro, para texto principal.
+  
+  # Cores de Acento (Semânticas)
+  red:            '#ff5555'  # Para erros, código inválido, alertas críticos.
+  orange:         '#ffb86c'  # Para parâmetros, anotações (TODO), constantes especiais.
+  yellow:         '#f1fa8c'  # Para strings e valores literais.
+  green:          '#50fa7b'  # Para declarações de funções/métodos e sucesso.
+  cyan:           '#8be9fd'  # Para tipos, classes, interfaces, structs.
+  blue:           '#61afef'  # Para chamadas de funções e variáveis.
+  pink:           '#ff79c6'  # Para palavras-chave de controlo de fluxo e armazenamento.
+  purple:         '#bd93f9'  # Para números, constantes booleanas/nulas.
+
+# -----------------------------------------------------------------------------
+# Secção 2: Variantes de Tema (UI)
+# -----------------------------------------------------------------------------
+# Mapeia papéis funcionais da Interface de Utilizador (UI) para cores da paleta.
+# Isto permite a criação de temas consistentes (claro, escuro, etc.).
+themes:
+  dark:
+    # Cores Fundamentais
+    background:         '{{palette.black}}'
+    foreground:         '{{palette.white}}'
+    
+    # Cores da UI do Editor/Terminal
+    selection_bg:       '{{palette.dark_grey}}'
+    line_highlight_bg:  '#343746' # Um pouco mais claro que o fundo
+    caret:              '{{palette.white}}'
+    
+    # Cores de Destaque da UI
+    accent_active:      '{{palette.pink}}'   # Para bordas de janela ativa, separadores, etc.
+    accent_inactive:    '{{palette.dark_grey}}' # Para bordas de janela inativa.
+    
+    # Cores Semânticas da UI
+    comment:            '{{palette.grey}}'
+    error:              '{{palette.red}}'
+    warning:            '{{palette.orange}}'
+    success:            '{{palette.green}}'
+
+  light:
+    # Cores Fundamentais
+    background:         '#fafafa'
+    foreground:         '#383a42'
+    
+    # Cores da UI do Editor/Terminal
+    selection_bg:       '#b4d5fe'
+    line_highlight_bg:  '#eeeeee'
+    caret:              '#111111'
+    
+    # Cores de Destaque da UI
+    accent_active:      '#d73a49' # Um vermelho/rosa mais escuro para fundo claro
+    accent_inactive:    '#d8dee2' # Um cinzento claro
+    
+    # Cores Semânticas da UI
+    comment:            '#a0a1a7'
+    error:              '#d73a49'
+    warning:            '#e36209'
+    success:            '#22863a'
+
+# -----------------------------------------------------------------------------
+# Secção 3: Mapeamento Semântico para Realce de Sintaxe
+# -----------------------------------------------------------------------------
+# Mapeia os papéis semânticos (da hierarquia de 5 níveis) para as cores
+# da paleta. Este mapeamento é agnóstico em relação ao tema (claro/escuro),
+# pois refere-se aos nomes abstratos da paleta.
+syntax_mapping:
+  # Nível 1: Crítico / Ação Imediata
+  error:                '{{palette.red}}'
+  illegal:              '{{palette.red}}'
+  deprecated:           '{{palette.orange}}'
+  todo:                 '{{palette.orange}}' # Para TODO, FIXME, BUG
+
+  # Nível 2: Elementos Estruturais Principais
+  keyword_control:      '{{palette.pink}}'   # if, else, for, while, return, try
+  storage_type:         '{{palette.pink}}'   # const, let, var, static, class, def
+  import_export:        '{{palette.pink}}'   # import, export, from
+  
+  type_name:            '{{palette.cyan}}'   # Nomes de classes, structs, enums, interfaces
+  function_declaration: '{{palette.green}}'  # Nomes de funções/métodos na sua declaração
+
+  # Nível 3: Dados e Invocações
+  function_call:        '{{palette.blue}}'    # Chamadas de funções/métodos
+  variable:             '{{palette.white}}'   # Variáveis locais (no tema escuro, será a cor de foreground)
+  parameter:            '{{palette.orange}}'  # Parâmetros de funções/métodos
+  
+  string:               '{{palette.yellow}}'  # Literais de string
+  number:               '{{palette.purple}}'  # Literais numéricos
+  boolean_null:         '{{palette.purple}}'  # true, false, null, None
+  constant:             '{{palette.orange}}'  # Constantes de linguagem ou definidas pelo utilizador
+
+  # Nível 4: Informação de Suporte / Metadados
+  comment:              '{{palette.grey}}'
+  operator:             '{{palette.pink}}'   # Operadores lógicos e aritméticos (+, -, *, /, ==)
+  punctuation:          '{{palette.light_grey}}' # Pontuação como ;, ,, (), {}
+
+  # Nível 5: Silenciado / Fundo
+  inactive_code:        '{{palette.grey}}'    # Código não utilizado ou inalcançável

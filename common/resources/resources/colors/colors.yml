@@ -1,0 +1,55 @@
+# colors.yml - Fonte de Verdade para todo o Sistema de Cores
+
+# Secção 1: Paleta de Cores Abstrata
+# Nomes independentes de tema. Todas as cores são definidas aqui.
+palette:
+  # Cores Neutras
+  black:   '#1e1e1e'
+  white:   '#d4d4d4'
+  grey:    '#808080'
+  
+  # Cores de Acento (Semânticas)
+  red:     '#f44747'
+  orange:  '#ce9178'
+  yellow:  '#d7ba7d'
+  green:   '#6a9955'
+  cyan:    '#4ec9b0'
+  blue:    '#569cd6'
+  purple:  '#c586c0'
+
+# Secção 2: Variantes de Tema
+# Mapeia nomes de papéis de UI para cores da paleta.
+themes:
+  dark:
+    background:         '{{palette.black}}'
+    foreground:         '{{palette.white}}'
+    selection:          '#264f78'
+    comment:            '{{palette.grey}}'
+    #... outras cores de UI
+  light:
+    background:         '#ffffff'
+    foreground:         '#000000'
+    selection:          '#add6ff'
+    comment:            '{{palette.grey}}'
+    #... outras cores de UI
+
+# Secção 3: Mapeamento Semântico para Realce de Sintaxe
+# Mapeia papéis semânticos (da Tabela 2) para nomes de cores da paleta.
+# Este mapeamento é agnóstico em relação ao tema (claro/escuro).
+syntax_mapping:
+  # Nível 1
+  error:                '{{palette.red}}'
+  todo:                 '{{palette.orange}}'
+  
+  # Nível 2
+  keyword_control:      '{{palette.purple}}'
+  type_name:            '{{palette.cyan}}'
+  function_declaration: '{{palette.green}}'
+  
+  # Nível 3
+  function_call:        '{{palette.blue}}'
+  variable:             '{{palette.white}}' # Ou uma cor específica
+  string:               '{{palette.orange}}'
+  number:               '{{palette.yellow}}'
+  
+  #... resto do mapeamento da Tabela 2

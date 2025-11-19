@@ -1,0 +1,12 @@
+Color,Hex,RGB,Token,Mostly used as
+Purple,#a277ff,"162,119,255",accent1,Primary color
+Purple,#3d375e,"61,55,94",accent20,Selections
+Purple,#29263c,"41,38,60",accent38,"Selections (without alpha)"
+Green,#61ffca,"97,255,202",accent2,Secondary color
+Orange,#ffca85,"255,202,133",accent3,Tertiary color
+Pink,#f694ff,"246,148,255",accent6,Quaternary color
+Blue,#82e2ff,"130,226,255",accent32,Quinary color
+Red,#ff6767,"255,103,103",accent5,Senary color
+White,#edecee,"237,236,238",accent7,Foregrounds
+Gray,#6d6d6d,"109,109,109",accent8,Comments
+Black,#15141b,"21,20,27",accent12,Backgrounds

@@ -1,0 +1,256 @@
+/* ~/.config/waybar/style.css */
+/* TEMA: "Hallwoeened Rainbowish Pro" - Arquivo de Lógica */
+
+/* 1. "Sourcing" (Import) das nossas 55 cores e aliases */
+/* @import url("colors.css"); */
+
+
+/* ~/.config/waybar/colors.css */
+/* TEMA: "Rainbowish Pro" (Hierarquia Semântica) - 55 Cores */
+
+/* ========================================================== */
+/* --- NÍVEL 1: A PALETA (55 CORES) --- */
+/* ========================================================== */
+
+/* --- 1. PURPLE_BLACK (Base L=8%) --- */
+@define-color PURPLE_BLACK_DARKER #000000;
+@define-color PURPLE_BLACK_DARK #110011;
+@define-color PURPLE_BLACK #220022;
+@define-color PURPLE_BLACK_LIGHT #330033;
+@define-color PURPLE_BLACK_LIGHTER #440044;
+/* --- 2. RED (Base L=50%) --- */
+@define-color RED_DARKER #550000;
+@define-color RED_DARK #AA0000;
+@define-color RED #FF0000;
+@define-color RED_LIGHT #FF5555;
+@define-color RED_LIGHTER #FFAAAA;
+/* --- 3. ORANGE (Base L=50%) --- */
+@define-color ORANGE_DARKER #552B00;
+@define-color ORANGE_DARK #AA5500;
+@define-color ORANGE #FF8000;
+@define-color ORANGE_LIGHT #FFAA55;
+@define-color ORANGE_LIGHTER #FFD5AA;
+/* --- 4. YELLOW (Base L=50%) --- */
+@define-color YELLOW_DARKER #555500;
+@define-color YELLOW_DARK #AAAA00;
+@define-color YELLOW #FFFF00;
+@define-color YELLOW_LIGHT #FFFF55;
+@define-color YELLOW_LIGHTER #FFFFAA;
+/* --- 5. GREEN (Base L=50%) --- */
+@define-color GREEN_DARKER #005500;
+@define-color GREEN_DARK #00AA00;
+@define-color GREEN #00FF00;
+@define-color GREEN_LIGHT #55FF55;
+@define-color GREEN_LIGHTER #AAFFAA;
+/* --- 6. BLUE (Base L=50%) --- */
+@define-color BLUE_DARKER #000055;
+@define-color BLUE_DARK #0000AA;
+@define-color BLUE #0000FF;
+@define-color BLUE_LIGHT #5555FF;
+@define-color BLUE_LIGHTER #AAAAFF;
+/* --- 7. INDIGO (Base L=50%) --- */
+@define-color INDIGO_DARKER #220055;
+@define-color INDIGO_DARK #4400AA;
+@define-color INDIGO #6600FF;
+@define-color INDIGO_LIGHT #9955FF;
+@define-color INDIGO_LIGHTER #CCAAFF;
+/* --- 8. VIOLET (Base L=50%) --- */
+@define-color VIOLET_DARKER #440055;
+@define-color VIOLET_DARK #8800AA;
+@define-color VIOLET #CC00FF;
+@define-color VIOLET_LIGHT #DD55FF;
+@define-color VIOLET_LIGHTER #EEAAFF;
+/* --- 9. PURPLE_WHITE (Base L=90%) --- */
+@define-color PURPLE_WHITE_DARKER #FF99FF;
+@define-color PURPLE_WHITE_DARK #FFB2FF;
+@define-color PURPLE_WHITE #FFCCFF;
+@define-color PURPLE_WHITE_LIGHT #FFE5FF;
+@define-color PURPLE_WHITE_LIGHTER #FFFFFF;
+/* --- 10. CYAN (Base L=50%) --- */
+@define-color CYAN_DARKER #004455;
+@define-color CYAN_DARK #0088AA;
+@define-color CYAN #00CCFF;
+@define-color CYAN_LIGHT #55DDFF;
+@define-color CYAN_LIGHTER #AAEEFF;
+/* --- 11. CURSOR_LINE_BG (Base L=15%) --- */
+@define-color CURSOR_LINE_BG_DARKER #000000;
+@define-color CURSOR_LINE_BG_DARK #220022;
+@define-color CURSOR_LINE_BG #440044;
+@define-color CURSOR_LINE_BG_LIGHT #660066;
+@define-color CURSOR_LINE_BG_LIGHTER #880088;
+
+/* ========================================================== */
+/* --- NÍVEL 2: ALIASES SEMÂNTICOS (Sua Filosofia) --- */
+/* ========================================================== */
+
+/* --- Base (Relaxante) --- */
+@define-color bar-bg @PURPLE_BLACK_DARKER;     /* Fundo da Barra: #000000 */
+@define-color module-bg @PURPLE_BLACK_DARK;    /* Fundo Módulo: #110011 */
+@define-color module-hover @PURPLE_BLACK;      /* Fundo Módulo (Hover): #220022 */
+@define-color module-border @PURPLE_BLACK_LIGHTER; /* Borda sutil: #440044 */
+@define-color text-main @ORANGE_LIGHT;         /* Texto (Relaxante): #FFAA55 */
+@define-color text-muted @ORANGE_DARK;         /* Texto (Muted): #AA5500 */
+@define-color text-accent @ORANGE;           /* Acento (Laranja): #FF8000 */
+
+/* --- "Escandalosa" (Baixa Frequência) --- */
+@define-color accent-rare @GREEN_LIGHT;        /* A cor mais chamativa: #55FF55 */
+
+/* --- Feedback --- */
+@define-color accent-warning @YELLOW;
+@define-color accent-critical @RED;
+
+/* --- Ciclo Arco-Íris (para nth-child) --- */
+@define-color c8 @RED_LIGHT;
+@define-color c2 @ORANGE_LIGHT;
+@define-color c3 @YELLOW_LIGHT;
+@define-color c4 @GREEN_LIGHT;
+@define-color c5 @CYAN_LIGHT;
+@define-color c6 @BLUE_LIGHT;
+@define-color c7 @INDIGO_LIGHT;
+@define-color c1 @VIOLET_LIGHT;
+
+/* 2. Reset Global (O *jeito certo* de usar *) */
+* {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-family: "JetBrains Mono", monospace;
+}
+
+/* 3. A Barra Principal */
+
+window#waybar {
+    /* * Define o fundo ESTÁTICO (laranja) para a barra.
+     * A barra de baixo usará isso como padrão.
+     */
+    background: transparent;
+    /* * Define a cor de texto (preto) para todos os módulos
+     * (será herdada).
+     */
+    color: @bar-bg;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* * Lógica Dinâmica CORRIGIDA.
+ * A barra de cima vai SOBRESCREVER o 'background' laranja
+ * com a cor do workspace ativo.
+ * (Note a sintaxe: SEM espaço e SEM '> *')
+ */
+window#waybar.workspace-1 { background: @c1; }
+window#waybar.workspace-2 { background: @c2; }
+window#waybar.workspace-3 { background: @c3; }
+window#waybar.workspace-4 { background: @c4; }
+window#waybar.workspace-5 { background: @c5; }
+window#waybar.workspace-6 { background: @c6; }
+window#waybar.workspace-7 { background: @c7; }
+window#waybar.workspace-8 { background: @c8; }
+
+/* 4. Estilo "Pílula" Padrão para TODOS os Módulos */
+/* Isso cria a aparência moderna e espaçada */
+#workspaces,
+#submaps,
+#window,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray,
+#keyboard-state {
+    background-color: @module-bg;
+    padding: 2px 10px;
+    margin: 4px 2px; /* Margem vertical de 4px, horizontal de 2px */
+    border: 1px solid @module-border;
+    border-radius: 10px; /* Cantos arredondados */
+    transition: background-color 0.3s ease;
+}
+
+/* 5. Estilo de Hover (Mouse em cima) */
+#workspaces button:hover,
+#submaps:hover,
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#network:hover,
+#pulseaudio:hover,
+#keyboard-state:hover {
+    background-color: @module-hover;
+}
+
+/* ========================================================== */
+/* --- WORKSPACES (com nth-child) --- */
+/* ========================================================== */
+#workspaces button > * {
+    /* color: @text-muted; Cor padrão (Laranja escuro)  */
+    background: transparent;
+    padding: 0 5px;
+}
+#workspaces button:nth-child(1) { color: @c1; }
+#workspaces button:nth-child(2) { color: @c2; }
+#workspaces button:nth-child(3) { color: @c3; }
+#workspaces button:nth-child(4) { color: @c4; }
+#workspaces button:nth-child(5) { color: @c5; }
+#workspaces button:nth-child(6) { color: @c6; }
+#workspaces button:nth-child(7) { color: @c7; }
+#workspaces button:nth-child(8) { color: @c8; }
+
+/* Destaca o workspace focado (ativo) */
+#workspaces button.focused {
+	/* color: background; */
+	/* background: color; */
+}
+
+#workspaces button.urgent {
+    background-color: @accent-critical;
+    color: @bar-bg;
+}
+
+/* ========================================================== */
+/* --- MÓDULOS DA DIREITA (com nth-child) --- */
+/* ========================================================== */
+/* Sua diretiva: aplicar cores por posição */
+#modules-right > * {
+    background-color: @module-bg;
+}
+.modules-right > *:nth-child(1) { color: @c1; } /* pulseaudio */
+.modules-right > *:nth-child(2) { color: @c2; } /* network */
+.modules-right > *:nth-child(3) { color: @c3; } /* cpu */
+.modules-right > *:nth-child(4) { color: @c4; } /* memory */
+.modules-right > *:nth-child(5) { color: @c5; } /* temperature */
+.modules-right > *:nth-child(6) { color: @c6; } /* keyboard-state */
+.modules-right > *:nth-child(7) { color: @c7; } /* clock */
+
+/* ========================================================== */
+/* --- O "ESCANDALOSO" (Baixa Frequência) --- */
+/* ========================================================== */
+#submaps {
+    color: @accent-rare;
+    background-color: @GREEN_DARKER;
+    border: 1px solid @accent-rare;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ========================================================== */
+/* --- ESTADOS (WARNING/CRITICAL) --- */
+/* ========================================================== */
+#cpu.warning,
+#memory.warning,
+#temperature.warning {
+    background-color: @accent-warning;
+    color: @bar-bg;
+}
+
+#cpu.critical,
+#memory.critical,
+#temperature.critical,
+#network.disconnected {
+    background-color: @accent-critical;
+    color: @bar-bg;
+}

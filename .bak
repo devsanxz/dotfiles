@@ -1,0 +1,360 @@
+# ~/.config/foot/foot.ini
+# Este é um arquivo de configuração completo para o terminal foot.
+# As opções estão comentadas por padrão. Para alterar um valor,
+# remova o '#' do início da linha e modifique o valor.
+
+[main]
+# Define o shell a ser executado na inicialização.
+# shell=
+# Padrão: $SHELL do ambiente; se não definido, usa o shell padrão do usuário em /etc/passwd.
+
+# Define se o shell deve ser iniciado como um shell de login (prependendo um '-').
+# login-shell=no
+# Padrão: no. Opções: yes, no.
+
+# Define o valor da variável de ambiente TERM.
+# term=foot
+# Padrão: foot.
+
+# Define a lista de fontes a serem usadas, separadas por vírgula.
+# A primeira é a principal, as seguintes são de fallback.
+ font=FiraCode Nerd Font:size=12
+# Padrão: monospace:size=8.
+
+# Define uma fonte específica para texto em negrito.
+# font-bold=
+# Padrão: não definido (usa a variação negrito da fonte principal).
+
+# Define uma fonte específica para texto em itálico.
+# font-italic=
+# Padrão: não definido (usa a variação itálico da fonte principal).
+
+# Define uma fonte específica para texto em negrito e itálico.
+# font-bold-italic=
+# Padrão: não definido (usa a variação negrito e itálico da fonte principal).
+
+# Ajusta o tamanho da fonte ao dar zoom (incremento/decremento).
+# font-size-adjustment=0.5
+# Padrão: 0.5. Opções: valor em pontos (pt), pixels (px) ou porcentagem (%).
+
+# Altura da linha. Pode ser em pontos (padrão) ou pixels (px).
+# line-height=
+# Padrão: não definido (usa a métrica da fonte).
+
+# Espaçamento entre letras. Pode ser em pontos (padrão) ou pixels (px).
+# letter-spacing=0
+# Padrão: 0.
+
+# Deslocamento horizontal das letras. Pode ser em pontos (padrão) ou pixels (px).
+# horizontal-letter-offset=0
+# Padrão: 0.
+
+# Deslocamento vertical das letras. Pode ser em pontos (padrão) ou pixels (px).
+# vertical-letter-offset=0
+# Padrão: 0.
+
+# Deslocamento personalizado para sublinhados.
+# underline-offset=
+# Padrão: não definido (usa o valor da fonte).
+
+# Espessura personalizada para sublinhados.
+# underline-thickness=
+# Padrão: não definido (usa o valor da fonte).
+
+# Espessura personalizada para textos riscados (strikeout).
+# strikeout-thickness=
+# Padrão: não definido (usa o valor da fonte).
+
+# Define se as fontes devem ser dimensionadas usando o DPI do monitor ou o fator de escala.
+# dpi-aware=auto
+# Padrão: auto. Opções: auto, yes, no.
+
+# Preenchimento (padding) entre a borda e o conteúdo, em pixels.
+# pad=2x2
+# Padrão: 2x2 (formato Largura x Altura).
+
+# Tamanho inicial da janela em pixels.
+# initial-window-size-pixels=700x500
+# Padrão: 700x500.
+
+# Tamanho inicial da janela em caracteres.
+# initial-window-size-chars=
+# Padrão: não definido.
+
+# Modo inicial da janela.
+# initial-window-mode=windowed
+# Padrão: windowed. Opções: windowed, maximized, fullscreen.
+
+# Título inicial da janela.
+# title=foot
+# Padrão: foot.
+
+# ID do aplicativo para o compositor Wayland.
+# app-id=foot
+# Padrão: foot.
+
+# Renderiza texto em negrito com uma cor mais brilhante.
+# bold-text-in-bright=no
+# Padrão: no. Opções: yes, no.
+
+# Ação a ser executada ao receber um caractere de sino (BEL).
+# bell=none
+# Padrão: none. Opções: none, set-urgency, notify.
+
+# Comando a ser executado para notificações de desktop (quando bell=notify).
+# notify=notify-send -a foot -i foot ${title} ${message}
+# Padrão: notify-send -a foot -i foot ${title} ${message}.
+
+# Comportamento de quebra de linha de palavras.
+# word-delimiters=,│`|:"'(){}<>
+# Padrão: ,│`|:"'(){}<>.
+
+# Seleção de texto com o mouse não incluirá a nova linha final.
+# selection-target=primary
+# Padrão: primary. Opções: primary, clipboard, both.
+
+# Permite que aplicativos acessem a área de transferência do sistema.
+# allow-passthrough=no
+# Padrão: no. Opções: yes, no.
+
+# Inclui outro arquivo de configuração.
+# include=
+# Padrão: não definido.
+
+[scrollback]
+# Número de linhas a serem mantidas no buffer de rolagem.
+# lines=1000
+# Padrão: 1000.
+
+# Multiplicador para rolagem com a roda do mouse.
+# multiplier=3.0
+# Padrão: 3.0.
+
+# Indicador de posição na barra de rolagem.
+# indicator-position=relative
+# Padrão: relative. Opções: relative, fixed, none.
+
+# Formato do indicador de posição.
+# indicator-format=percentage
+# Padrão: percentage. Opções: percentage, line, none.
+
+[url]
+# Ação ao abrir uma URL.
+# launch=xdg-open ${url}
+# Padrão: xdg-open ${url}.
+
+# Protocolos de URL que serão detectados.
+# protocols=http, https, ftp, ftps, file, gemini, gopher
+# Padrão: http, https, ftp, ftps, file, gemini, gopher.
+
+# Caracteres que podem fazer parte de uma URL.
+# uri-characters=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+="'()
+# Padrão: (lista de caracteres acima).
+
+[cursor]
+# Estilo do cursor.
+# style=block
+# Padrão: block. Opções: block, beam, underline.
+
+# Cor do cursor (texto e fundo do cursor).
+# color=
+# Padrão: inverte as cores da célula.
+
+# Define se o cursor pisca.
+# blink=no
+# Padrão: no. Opções: yes, no.
+
+# Espessura do cursor em pixels para os estilos 'beam' e 'underline'.
+# beam-thickness=1.5
+# Padrão: 1.5.
+
+# Espessura do cursor 'underline' em pixels.
+# underline-thickness=
+# Padrão: espessura da fonte.
+
+[mouse]
+# Oculta o cursor do mouse ao digitar.
+# hide-when-typing=no
+# Padrão: no. Opções: yes, no.
+
+# Modificadores de teclado para alterar a seleção do mouse.
+# alternate-scroll-mode=yes
+# Padrão: yes. Opções: yes, no.
+
+[colors]
+# ~/.config/foot/foot.ini
+#
+# Aura Theme com a inversão Roxo <-> Branco
+# O texto padrão agora é Roxo sobre o fundo escuro.
+
+[colors]
+# --- Inversão Principal ---
+background=15141b
+foreground=a277ff   # <-- MUDOU: Agora é o Roxo do Aura
+
+# --- Cores Regulares com a troca ---
+regular0=6d6d6d   # Gray
+regular1=ff6767   # Red
+regular2=61ffca   # Green
+regular3=ffca85   # Orange (Yellow)
+regular4=82e2ff   # Blue
+regular5=edecee   # <-- MUDOU: Branco agora ocupa o lugar do Roxo (magenta)
+regular6=f694ff   # Pink (Cyan)
+regular7=a277ff   # <-- MUDOU: Roxo agora ocupa o lugar do Branco
+
+# --- Cores Brilhantes com a troca ---
+bright0=6d6d6d    # Gray
+bright1=ff6767    # Red
+bright2=61ffca    # Green
+bright3=ffca85    # Orange
+bright4=82e2ff    # Blue
+bright5=edecee    # <-- MUDOU: Branco brilhante
+bright6=f694ff    # Pink
+bright7=a277ff    # <-- MUDOU: Roxo brilhante
+
+# --- Seleção Invertida para Contraste ---
+# Texto da seleção continua preto, fundo agora é branco para boa visibilidade
+selection-foreground=15141b
+selection-background=edecee # <-- MUDOU: Fundo branco
+
+# Nível de transparência do fundo (alpha).
+# alpha=0.7
+# Padrão: 1.0. Opções: 0.0 (transparente) a 1.0 (opaco).
+
+# Cores para URLs.
+# urls=
+# Padrão: usa as cores de sublinhado padrão.
+
+# Cores para as etiquetas de atalho no modo URL.
+# jump-labels=<regular0> <regular1>
+# Padrão: regular0 (fundo) e regular1 (texto).
+
+# Cores para o indicador de scrollback.
+# scrollback-indicator=<regular0> <regular1>
+# Padrão: regular0 (fundo) e regular1 (texto).
+
+# Cores para a caixa de pesquisa.
+# search-box-no-match=<regular0> <regular1>
+# Padrão: regular0 (fundo) e regular1 (texto).
+# search-box-match=<regular0> <regular1>
+# Padrão: regular0 (fundo) e regular1 (texto).
+
+# Cores para o mouse-over no modo de seleção.
+# selection-unfocused=<regular0> <regular1>
+# Padrão: regular0 (fundo) e regular1 (texto).
+
+[csd]
+# Define se as decorações do lado do cliente (barras de título) são preferidas.
+# preferred=server
+# Padrão: server. Opções: server, client, none.
+
+# Tamanho da borda da janela em pixels.
+# size=26
+# Padrão: 26.
+
+# Cor da barra de título.
+# color=
+# Padrão: cor de fundo do terminal.
+
+# Oculta a barra de título em janelas maximizadas/fullscreen.
+# hide-when-maximized=no
+# Padrão: no. Opções: yes, no.
+
+# Adiciona uma borda ao redor da janela.
+# border-width=0
+# Padrão: 0.
+
+# Cor da borda da janela.
+# border-color=
+# Padrão: cor de primeiro plano do terminal.
+
+# Cor do botão de fechar.
+# button-color=
+# Padrão: cor de primeiro plano do terminal.
+
+# Cor do botão de minimizar.
+# button-minimize-color=
+# Padrão: cor de primeiro plano do terminal.
+
+# Cor do botão de maximizar.
+# button-maximize-color=
+# Padrão: cor de primeiro plano do terminal.
+
+[key-bindings]
+# Ações de atalhos de teclado. A lista completa está na documentação (man 5 foot.ini).
+# scrollback-up-page=Shift+Page_Up
+# scrollback-up-half-page=
+# scrollback-up-line=
+# scrollback-down-page=Shift+Page_Down
+# scrollback-down-half-page=
+# scrollback-down-line=
+# clipboard-copy=Control+Shift+c XF86Copy
+# clipboard-paste=Control+Shift+v XF86Paste
+# primary-paste=Shift+Insert
+# search-start=Control+Shift+r
+# font-increase=Control+plus Control+equal Control+KP_Add
+# font-decrease=Control+minus Control+KP_Subtract
+# font-reset=Control+0 Control+KP_0
+# spawn-terminal=Control+Shift+n
+# minimize=
+# maximize=
+# fullscreen=
+# pipe-visible=[sh -c "xurls | fuzzel | xargs -r firefox"]
+# pipe-scrollback=[sh -c "xurls | fuzzel | xargs -r firefox"]
+# pipe-selected=[xargs -r firefox]
+# show-urls-launch=Control+Shift+u
+# show-urls-copy=
+# show-urls-persistent=
+# prompt-prev=
+# prompt-next=
+# unicode-input=
+# quit=Control+Shift+q
+
+[search-bindings]
+# Atalhos para o modo de busca.
+# cancel=Control+g Escape
+# commit=Return
+# find-prev=Control+r
+# find-next=Control+s
+# cursor-left=Left Control+b
+# cursor-left-word=Control+Left Mod1+b
+# cursor-right=Right Control+f
+# cursor-right-word=Control+Right Mod1+f
+# cursor-home=Home Control+a
+# cursor-end=End Control+e
+# delete-prev=BackSpace
+# delete-prev-word=Mod1+BackSpace Control+BackSpace
+# delete-next=Delete
+# delete-next-word=Mod1+d Control+Delete
+# extend-to-word-boundary=Control+w
+# extend-to-next-whitespace=Control+Shift+w
+# clipboard-paste=Control+v Control+y
+# primary-paste=Shift+Insert
+
+[mouse-bindings]
+# Ações de atalhos do mouse.
+# selection-override-modifiers=Shift
+# primary-paste=BTN_MIDDLE
+# select-begin=BTN_LEFT
+# select-begin-block=Control+BTN_LEFT
+# select-extend=BTN_RIGHT
+# select-extend-character-wise=Control+BTN_RIGHT
+# select-word=BTN_LEFT-2
+# select-word-whitespace=Control+BTN_LEFT-2
+# select-row=BTN_LEFT-3
+
+[tweak]
+# Opções de baixo nível para usuários avançados. Não altere a menos que saiba o que está fazendo.
+# initial-render-threshold=16
+# scaling-filter=linear
+# allow-overflowing-double-width-glyphs=no
+# render-timer=yes
+# delayed-render-lower=10
+# delayed-render-upper=250
+# damage-whole-window=no
+# max-shm-pool-size-mb=4096
+
+#[security]
+# Permite que aplicativos dentro do terminal acessem a área de transferência do sistema.
+# clipboard=enabled
+# Padrão: enabled. Opções: enabled, copy-enabled, paste-enabled, disabled.
