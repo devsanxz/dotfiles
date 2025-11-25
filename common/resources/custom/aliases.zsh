@@ -1,4 +1,5 @@
 alias Dot='cd ~/dotfiles' 
+alias Code='cd ~/code'
 
 alias -g Help="--help"
 alias -g Hist="history 1 | grep -i"

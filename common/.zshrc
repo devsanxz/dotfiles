@@ -47,6 +47,7 @@ export color6="#A855F7"
 export color7="#22D3EE"             
 export color8="#F1F5F9"
 
+source ~/resources/custom/variables.zsh
 source ~/resources/custom/aliases.zsh
 source ~/resources/config/history.zsh
 source ~/resources/custom/colors.zsh
