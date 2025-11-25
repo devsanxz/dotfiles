@@ -1,1 +1,1 @@
-export GRIM_DEFAULT_DIR=~/Images/ss/
+# export GRIM_DEFAULT_DIR=~/Images/ss/ # MOVED TO HYPRLAND.CONF

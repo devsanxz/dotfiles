@@ -8,18 +8,20 @@ export HIST_STAMPS=%F
 
 export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
+# THE FOLLOWING LINES EXIST IN CASE NOT ALL YOUR MACHINES HAVE NVIM, SO IF YOU CONNECT TO THEM BY SSH THEY'LL WORK PROPERLLY;
+#
+# I'M CHANGING IT FOR MY ENVIRONMENT IS NVIM;
+#
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+expor EDITOR='nvim'
 
 # Compilation flags
-export EDITOR="zsh"
 export ARCHFLAGS="-arch $(uname -m)"
 
 zstyle :compinstall flename '/home/san/.zshrc'
