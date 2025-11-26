@@ -1,7 +1,7 @@
 -- ~/.config/nvim/colors/sanxz2.lua
--- Matriz Aura (Versão Standalone para pasta colors/)
+-- Matriz Aura (Versão Corrigida)
 
--- 1. Limpa setups anteriores
+-- 1. Limpa configurações de cores anteriores
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
 	vim.cmd("syntax reset")
@@ -10,7 +10,7 @@ end
 vim.g.colors_name = "sanxz2"
 vim.opt.termguicolors = true
 
--- 2. Definição da Paleta (Matriz Aura)
+-- 2. Definição da Paleta (Matriz Aura Oficial)
 local c = {
 	base = "#0F172A", -- Deep (Fundo)
 	surface = "#334155", -- Surface (Paineis/Linha Atual)
@@ -32,7 +32,7 @@ local c = {
 	gray = "#64748B", -- Comentários
 }
 
--- 3. Função Helper Local
+-- 3. Função Helper para aplicar as cores
 local function hl(group, fg, bg, attr)
 	local opts = {}
 	if fg then
@@ -47,7 +47,7 @@ local function hl(group, fg, bg, attr)
 	vim.api.nvim_set_hl(0, group, opts)
 end
 
--- --- APLICAÇÃO ---
+-- --- APLICAÇÃO DOS GRUPOS ---
 
 -- Editor Base
 hl("Normal", c.ice, c.base)
