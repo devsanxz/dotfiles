@@ -35,7 +35,7 @@ source ~/resources/config/history.zsh
 source ~/resources/custom/colors.zsh
 source ~/resources/custom/ls-colors.zsh
 source ~/resources/custom/PS1.zsh
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/resources/custom/theme-highlight.zsh
