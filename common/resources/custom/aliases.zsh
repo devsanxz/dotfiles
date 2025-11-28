@@ -10,4 +10,3 @@ alias lst='eza -T --smart-group --header --total-size --no-user --no-time --clas
 
 alias '$ '='sudo '
 
-alias gemini='chromium --app=https://gemini.google.com/app'
