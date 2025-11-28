@@ -90,13 +90,6 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- ADMIN INSERT
---
-require("san.options") -- Carrega tabs, numeros, clipboard
-require("san.keymaps") -- Carrega o ç, Ç e navegação
---
--- ADMIN INSERT END
-
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -139,10 +132,10 @@ vim.o.smartcase = true
 vim.o.signcolumn = "yes"
 
 -- Decrease update time
-vim.o.updatetime = 200
+vim.o.updatetime = 100
 
 -- Decrease mapped sequence wait time
-vim.o.timeoutlen = 100
+vim.o.timeoutlen = 200
 
 -- Configure how new splits should be opened
 vim.o.splitright = true
@@ -311,7 +304,7 @@ require("lazy").setup({
 		opts = {
 			-- delay between pressing a key and opening which-key (milliseconds)
 			-- this setting is independent of vim.o.timeoutlen
-			delay = 0,
+			delay = 10,
 			icons = {
 				-- set icon mappings to true if you have a Nerd Font
 				mappings = vim.g.have_nerd_font,
@@ -853,7 +846,7 @@ require("lazy").setup({
 				-- <c-k>: Toggle signature help
 				--
 				-- See :h blink-cmp-config-keymap for defining your own keymap
-				preset = "super-tab",
+				preset = "default",
 
 				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -1047,6 +1040,13 @@ require("lazy").setup({
 	},
 })
 
-vim.cmd.colorscheme("sanxz2")
+vim.cmd.colorscheme("sanxz4")
+
+-- ADMIN INSERT
+--
+require("san.options") -- Carrega tabs, numeros, clipboard
+require("san.keymaps") -- Carrega o ç, Ç e navegação
+--
+-- ADMIN INSERT END
 
 -- vim: ts=2 sts=2 sw=2 et
