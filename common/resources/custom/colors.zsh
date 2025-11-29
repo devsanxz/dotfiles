@@ -44,4 +44,4 @@ export color15=$c_white     # Bright White
 
 # --- Fundo e Texto Principal para prompt/outros ---
 export background=$ui_bg
-export foreground=$c_white
+export foreground=$c1

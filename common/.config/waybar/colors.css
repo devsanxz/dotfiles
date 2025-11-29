@@ -1,23 +1,22 @@
-/* ~/.config/waybar/colors.css */
+/* SANXZ4 Palette - Waybar */
+@define-color c0_black #000000;
+@define-color c8_white #ffffff;
 
-/*
- * PALETA DE 10 CORES (SSOT)
- * Baseado em ~/.config/hypr/myColors.conf
- */
+@define-color c1_violet #dd55ff;
+@define-color c2_orange #ffaa55;
+@define-color c3_yellow #ffff55;
+@define-color c4_green #55ff55;
+@define-color c5_cyan #55ddff;
+@define-color c6_blue #5555ff;
+@define-color c7_indigo #9955ff;
+@define-color c8_red #ff5555;
 
-@define-color c0 #000000;         /* Preto */
-@define-color c_white #FFFFFF;    /* Branco */
+@define-color bg #110011;
+@define-color border #440044;
+@define-color hover #220022;
 
-@define-color c1 #DD55FF;         /* Violeta */
-@define-color c2 #FFAA55;         /* Laranja */
-@define-color c3 #FFFF55;         /* Amarelo */
-@define-color c4 #55FF55;         /* Verde */
-@define-color c5 #55DDFF;         /* Ciano */
-@define-color c6 #5555FF;         /* Azul */
-@define-color c7 #9955FF;         /* Anil */
-@define-color c_red #FF5555;      /* Vermelho */
-
-/* Cores da UI */
-@define-color ui_bg #110011;      /* Fundo Pílula */
-@define-color ui_border #440044;  /* Borda Pílula */
-
+/* Semantic */
+@define-color text_main @c1_violet;
+@define-color text_sec @c8_white;
+@define-color warning @c3_yellow;
+@define-color critical @c8_red;

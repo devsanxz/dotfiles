@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "SANXZ4 Theme",
+  "description": "Swap White/Violet Dark Theme for SRE Sanchez",
+  "theme": {
+    "colors": {
+      "frame": [17, 0, 17],
+      "frame_inactive": [17, 0, 17],
+      "frame_incognito": [17, 0, 17],
+      "frame_incognito_inactive": [17, 0, 17],
+      "background_tab": [17, 0, 17],
+      "background_tab_inactive": [68, 0, 68],
+      "background_tab_incognito": [17, 0, 17],
+      "background_tab_incognito_inactive": [68, 0, 68],
+      "bookmark_text": [221, 85, 255],
+      "tab_background_text": [255, 255, 255],
+      "tab_text": [221, 85, 255],
+      "toolbar": [17, 0, 17],
+      "ntp_background": [17, 0, 17],
+      "ntp_text": [221, 85, 255],
+      "omnibox_background": [0, 0, 0],
+      "omnibox_text": [221, 85, 255]
+    }
+  }
+}
