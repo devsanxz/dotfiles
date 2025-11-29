@@ -17,7 +17,7 @@ vim.g.colors_name = "sanxz"
 local c = {
 	-- Âncoras
 	black = "#000000", -- c0
-	white = "#FFFFFF", -- c8_white
+	c_white = "#FFFFFF", -- c8_white
 
 	-- Ciclo Arco-Íris
 	violet = "#DD55FF", -- c1 (Foreground Principal)
@@ -27,13 +27,13 @@ local c = {
 	cyan = "#55DDFF", -- c5 (Tipos)
 	blue = "#5555FF", -- c6 (Operadores)
 	indigo = "#9955FF", -- c7 (Keywords/Estrutura)
-	red = "#FF5555", -- c8_red (Erros/Alertas)
+	c_red = "#FF5555", -- c8_red (Erros/Alertas)
 
 	-- Interface (UI) - Baseada nas "Pílulas" do Waybar
 	ui_bg = "#110011", -- Fundo de menus/status
 	ui_border = "#440044", -- Bordas sutis
-	ui_hover = "#220022", -- Seleção/CursorLine
-	comment = "#AA5500", -- Laranja Muted
+	ui_hover = c.ui_border, -- Seleção/CursorLine
+	comment = c.orange, -- Laranja Muted
 
 	-- Especiais
 	none = "NONE",
@@ -59,7 +59,7 @@ hl("Normal", c.violet, c.black) -- Texto Violeta no Fundo Preto
 hl("NormalFloat", c.violet, c.ui_bg) -- Janelas flutuantes mais escuras
 hl("FloatBorder", c.indigo, c.ui_bg) -- Borda Índigo
 hl("ColorColumn", nil, c.ui_hover)
-hl("Cursor", c.black, c.white)
+hl("Cursor", c.black, c.c_white)
 hl("CursorLine", nil, c.ui_bg) -- Linha atual sutil
 hl("CursorLineNr", c.yellow, c.ui_bg, "bold")
 hl("LineNr", c.ui_border, nil) -- Números de linha apagados
@@ -67,7 +67,7 @@ hl("SignColumn", nil, c.black)
 
 hl("VertSplit", c.ui_border, c.black)
 hl("WinSeparator", c.ui_border, c.black)
-hl("StatusLine", c.white, c.ui_bg)
+hl("StatusLine", c.c_white, c.ui_bg)
 hl("StatusLineNC", c.comment, c.ui_bg)
 
 hl("Pmenu", c.violet, c.ui_bg) -- Popup Menu (Autocomplete)
@@ -88,7 +88,7 @@ hl("Number", c.orange, nil)
 hl("Boolean", c.orange, nil, "bold")
 hl("Float", c.orange, nil)
 
-hl("Identifier", c.white, nil) -- Variáveis (Branco para destaque)
+hl("Identifier", c.c_white, nil) -- Variáveis (Branco para destaque)
 hl("Function", c.yellow, nil, "bold") -- Funções (Amarelo)
 
 hl("Statement", c.indigo, nil) -- if, while, return
@@ -97,7 +97,7 @@ hl("Repeat", c.indigo, nil)
 hl("Label", c.cyan, nil)
 hl("Operator", c.blue, nil) -- +, -, *, =
 hl("Keyword", c.indigo, nil, "italic") -- function, local
-hl("Exception", c.red, nil)
+hl("Exception", c.c_red, nil)
 
 hl("PreProc", c.cyan, nil) -- import, include
 hl("Include", c.cyan, nil)
@@ -110,12 +110,12 @@ hl("Structure", c.cyan, nil)
 hl("Typedef", c.cyan, nil)
 
 hl("Special", c.blue, nil)
-hl("Error", c.red, nil, "bold")
+hl("Error", c.c_red, nil, "bold")
 hl("Todo", c.black, c.red, "bold")
 
 -- --- TreeSitter (Otimização Moderna) ---
 -- Mapeia os grupos do TreeSitter para nossa lógica
-hl("@variable", c.white, nil)
+hl("@variable", c.c_white, nil)
 hl("@variable.builtin", c.orange, nil) -- this, self
 hl("@function", c.yellow, nil)
 hl("@function.builtin", c.yellow, nil)
@@ -133,7 +133,7 @@ hl("@tag.attribute", c.yellow, nil)
 hl("@tag.delimiter", c.ui_border, nil)
 
 -- --- LSP & Diagnostics ---
-hl("DiagnosticError", c.red, nil)
+hl("DiagnosticError", c.c_red, nil)
 hl("DiagnosticWarn", c.yellow, nil)
 hl("DiagnosticInfo", c.blue, nil)
 hl("DiagnosticHint", c.cyan, nil)

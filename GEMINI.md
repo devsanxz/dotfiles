@@ -31,7 +31,7 @@ stow common
 
 ## Development Conventions
 
-*   **Unified Color Palette:** A 10-color palette (`c0-c8` + white) acts as the "single source of truth" for theming, applied consistently across `Waybar` (style.css), `Hyprland` (myColors.conf), and `Neovim` (meu-tema.lua).
+*   **Unified Color Palette:** A 10-color palette (`c0-c8` + white) acts as the "single source of truth" for theming, applied consistently across `Waybar` (style.css), `Hyprland` (myColors.conf), and `Neovim` (sanxz4.lua).
 *   **Modular Architecture:** Configurations are organized into distinct profiles (`common`, `note`, `pi`) and further modularized within those profiles (e.g., separate files for `hyprland.conf`, `config.jsonc`).
 *   **Version Control:** The project is a Git repository, indicating adherence to version control practices for managing configuration changes.
 *   **Primary Editor:** Neovim is the primary editor used for managing these configurations.

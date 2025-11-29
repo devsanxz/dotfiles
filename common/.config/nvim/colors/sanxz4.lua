@@ -1,5 +1,6 @@
 -- ~/.config/nvim/colors/sanxz4.lua
--- Matriz Aura v4.0 (Edição "Total Immersion": Ultra-Saturada, Sem Cinza, Fundo 1% Mais Claro)
+-- TEMA: SANXZ v4 (Unificado com SSOT)
+-- Baseado na paleta de 10 cores do sistema.
 
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
@@ -9,32 +10,37 @@ end
 vim.g.colors_name = "sanxz4"
 vim.opt.termguicolors = true
 
--- 2. Definição da Paleta (Tinta Púrpura nos Extremos)
+-- ==========================================================
+-- 1. A PALETA (Fonte da Verdade - SSOT)
+-- ==========================================================
 local c = {
-	-- O "Preto" (Manchado de Roxo)
-	base = "#0E0A15", -- Roxo Abissal (Fundo Principal, 1% Mais Claro)
-	surface = "#21182C", -- Roxo Noturno (Painéis/Linha de Cursor)
+	-- Âncoras
+	black = "#000000", -- c0
+	c_white = "#FFFFFF", -- c8_white
 
-	-- O "Branco" e Cinza (AGORA SÓ ROXO ESCURO/MÉDIO E VIOLETA SATURADO)
-	text = "#B794FF", -- Violeta Intenso (Texto Padrão)
-	ice = "#C5A9FF", -- Lilás de Alto Brilho (Destaques de Leitura/Linhas)
-	dark_lilac = "#9377B8", -- Lilás Escuro (Substituto do c.gray para Comentários)
+	-- Ciclo Arco-Íris
+	violet = "#DD55FF", -- c1 (Foreground Principal)
+	orange = "#FFAA55", -- c2 (Números/Constantes)
+	yellow = "#FFFF55", -- c3 (Funções)
+	green = "#55FF55", -- c4 (Strings)
+	cyan = "#55DDFF", -- c5 (Tipos)
+	blue = "#5555FF", -- c6 (Operadores)
+	indigo = "#9955FF", -- c7 (Keywords/Estrutura)
+	c_red = "#FF5555", -- c8_red (Erros/Alertas)
 
-	-- Identidade (Poder Lilith)
-	magenta = "#A855F7", -- Ação
-	magenta_a = "#CC99FF", -- Aura Vibrante
+	-- Interface (UI) - Baseada nas "Pílulas" do Waybar
+	ui_bg = "#110011", -- Fundo de menus/status
+	ui_border = "#440044", -- Bordas sutis
+	ui_hover = "#220022", -- Seleção/CursorLine (mantido do sanxz.lua original)
+	comment = "#AA5500", -- Laranja Muted (mantido do sanxz.lua original)
 
-	-- Estrutura (Indigo Profundo)
-	indigo = "#6366F1", -- Imports
-	cyan = "#A78BFA", -- Conexões (Lilás Elétrico)
-
-	-- Sistema (Puxando para o brilho máximo e saturado)
-	green = "#34D399", -- Verde Esmeralda
-	yellow = "#FACC15", -- Amarelo Sol
-	red = "#F87171", -- Vermelho Fogo
+	-- Especiais
+	none = "NONE",
 }
 
--- 3. Helper
+-- ==========================================================
+-- 2. FUNÇÃO DE HIGHLIGHT
+-- ==========================================================
 local function hl(group, fg, bg, attr)
 	local opts = {}
 	if fg then
@@ -49,61 +55,59 @@ local function hl(group, fg, bg, attr)
 	vim.api.nvim_set_hl(0, group, opts)
 end
 
--- --- APLICAÇÃO ---
+-- ==========================================================
+-- 3. MAPEAMENTO DE GRUPOS (Lógica Unificada)
+-- ==========================================================
 
--- Editor
-hl("Normal", c.text, c.base)
-hl("NormalFloat", c.ice, c.base)
-hl("SignColumn", nil, c.base)
+-- --- Editor Base ---
+hl("Normal", c.violet, c.ui_bg)
+hl("NormalFloat", c.violet, c.ui_bg)
+hl("SignColumn", nil, c.ui_bg)
 
--- REGRA: Cor clara (c.ice) reservada para números de linha.
-hl("LineNr", c.ice, nil) -- Números de Linha em Lilás Alto Brilho
-hl("CursorLine", nil, c.surface)
-hl("CursorLineNr", c.magenta, nil, "bold")
-hl("EndOfBuffer", c.base, nil)
+hl("LineNr", c.ui_border, nil)
+hl("CursorLine", nil, c.ui_hover)
+hl("CursorLineNr", c.yellow, nil, "bold")
+hl("EndOfBuffer", c.ui_bg, nil)
 
--- Sintaxe
-hl("Comment", c.dark_lilac, nil, "italic")
+-- --- Sintaxe ---
+hl("Comment", c.comment, nil, "italic")
 
 hl("String", c.green)
 hl("Character", c.green)
 
-hl("Number", c.magenta_a)
-hl("Boolean", c.magenta_a)
-hl("Float", c.magenta_a)
+hl("Number", c.orange)
+hl("Boolean", c.orange)
+hl("Float", c.orange)
 
-hl("Function", c.magenta, nil, "bold")
-hl("Keyword", c.magenta)
-hl("Conditional", c.magenta)
-hl("Repeat", c.magenta)
-hl("Statement", c.magenta)
+hl("Function", c.yellow, nil, "bold")
+hl("Keyword", c.indigo)
+hl("Conditional", c.indigo)
+hl("Repeat", c.indigo)
+hl("Statement", c.indigo)
 
--- Imports (Magenta e Indigo)
-hl("PreProc", c.magenta)
-hl("Include", c.indigo)
-hl("Define", c.indigo)
-hl("Macro", c.indigo)
+hl("PreProc", c.cyan)
+hl("Include", c.cyan)
+hl("Define", c.cyan)
+hl("Macro", c.cyan)
 
--- Variáveis (Alto Brilho)
-hl("Identifier", c.ice)
+hl("Identifier", c.c_white)
 
--- Conexões e Tipos (Amarelo e Lilás Elétrico)
-hl("Operator", c.cyan)
-hl("Type", c.yellow)
-hl("Constant", c.yellow)
-hl("Special", c.cyan)
+hl("Operator", c.blue)
+hl("Type", c.cyan)
+hl("Constant", c.orange)
+hl("Special", c.blue)
 
--- Interface
-hl("Search", c.base, c.yellow)
-hl("Visual", nil, c.surface)
-hl("MatchParen", c.ice, c.surface, "bold")
+-- --- Interface ---
+hl("Search", c.black, c.yellow)
+hl("Visual", nil, c.ui_hover)
+hl("MatchParen", c.c_white, c.ui_border, "bold")
 
-hl("Error", c.red, nil, "bold")
-hl("ErrorMsg", c.red, nil, "bold")
+hl("Error", c.c_red, nil, "bold")
+hl("ErrorMsg", c.c_red, nil, "bold")
 hl("WarningMsg", c.yellow, nil, "bold")
 hl("DiagnosticInfo", c.cyan)
-hl("DiagnosticHint", c.ice)
+hl("DiagnosticHint", c.c_white)
 
--- Menus
-hl("Pmenu", c.ice, c.surface)
-hl("PmenuSel", c.base, c.magenta)
+-- --- Menus ---
+hl("Pmenu", c.c_white, c.ui_border)
+hl("PmenuSel", c.ui_bg, c.violet)

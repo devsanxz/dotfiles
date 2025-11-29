@@ -22,7 +22,7 @@ This repository manages the configurations for the following stack:
 
 ## 🎨 The Palette (The Theme)
 
-The *ricing* is based on a 10-color palette (`c0-c8` + white) that is shared across `Waybar` (style.css), `Hyprland` (myColors.conf), and `Neovim` (meu-tema.lua).
+The *ricing* is based on a 10-color palette (`c0-c8` + white) that is shared across `Waybar` (style.css), `Hyprland` (myColors.conf), and `Neovim` (sanxz4.lua).
 
 The "single source of truth" for this palette is defined in the style and configuration files.
 

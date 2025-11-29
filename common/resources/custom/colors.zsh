@@ -1,69 +1,47 @@
 # ~/.zshrc
 
-# --- Paleta de Cores Global (Aura Theme - True Color Hex) ---
+# --- Paleta de Cores Global (SSOT - Baseado em myColors.conf) ---
 # Usando os códigos hex exatos para 100% de fidelidade ao tema.
 
-AURA_HEX_PURPLE='#a277ff'
-AURA_HEX_GREEN='#61ffca'
-AURA_HEX_ORANGE='#ffca85'
-AURA_HEX_PINK='#f694ff'
-AURA_HEX_BLUE='#82e2ff'
-AURA_HEX_RED='#ff6767'
-AURA_HEX_WHITE='#edecee'
-AURA_HEX_GRAY='#6d6d6d'
+# Âncoras
+export c0="#000000"         # Preto
+export c_white="#FFFFFF"    # Branco
 
-# --- Fundo e Texto Principal ---
-# Mantendo o fundo original profundo para máximo contraste geral
-export background="#0F172A"
-export foreground="#E2E8F0"  # Texto claro (ótimo contraste)
+# Ciclo Arco-Íris
+export c1="#DD55FF"         # Violeta
+export c2="#FFAA55"         # Laranja
+export c3="#FFFF55"         # Amarelo
+export c4="#55FF55"         # Verde
+export c5="#55DDFF"         # Ciano
+export c6="#5555FF"         # Azul
+export c7="#9955FF"         # Anil
+export c_red="#FF5555"      # Vermelho
 
-# --- A Correção de Miopia/Astigmatismo (Pretos mais claros) ---
-# Clareados ~5-8% para não "sumirem" no fundo escuro.
-# Removemos um pouco da saturação para evitar o tom "arroxeado/amarronzado".
-
-# Antes: #1E293B -> Agora: Mais luminoso e neutro
-export black="#334155"       
-
-# Bright Black (Cinza médio para comentários/inativos)
-# Antes: Indefinido/Escuro -> Agora: Visível sem esforço
-export color8="#64748B"      
-
-# --- Cores Vivas (Originais) ---
-export red="#F43F5E"
-export green="#22C55E"
-export yellow="#FACC15"
-export blue="#3B82F6"
-export magenta="#A855F7"
-export cyan="#22D3EE"
-export white="#F1F5F9"
-
-# --- Cores "Aura" (Brights) ---
-# A mistura de 50% com branco para dobrar sua paleta (Tons Pastel)
-
-export red_bright="#FAA0AF"     # Red + White
-export green_bright="#91E2AE"   # Green + White
-export yellow_bright="#FDE68A"  # Yellow + White
-export blue_bright="#9CC0FB"    # Blue + White
-export magenta_bright="#D4AAFB" # Magenta + White (Lilith Aura)
-export cyan_bright="#91E9F6"    # Cyan + White
+# Interface (UI)
+export ui_bg="#110011"      # Fundo Pílula (usado como fundo principal)
+export ui_border="#440044"  # Borda Pílula (usado para detalhes)
 
 # --- Mapeamento ANSI Final ---
 # 0-7: Cores Normais
-export color0=$black
-export color1=$red
-export color2=$green
-export color3=$yellow
-export color4=$blue
-export color5=$magenta
-export color6=$cyan
-export color7=$foreground
+export color0=$c0
+export color1=$c_red
+export color2=$c4
+export color3=$c3
+export color4=$c6
+export color5=$c1
+export color6=$c5
+export color7=$c_white # Usamos c_white como foreground padrão para contraste
 
-# 8-15: Cores Brilhantes (Pastel/Aura)
-# color8 já foi definido lá em cima com o ajuste de contraste
-export color9=$red_bright
-export color10=$green_bright
-export color11=$yellow_bright
-export color12=$blue_bright
-export color13=$magenta_bright
-export color14=$cyan_bright
-export color15=$white
+# 8-15: Cores Brilhantes (Aura - tons mais claros ou variantes)
+export color8=$ui_border    # Usamos ui_border para um "preto brilhante" mais suave
+export color9=$c_red        # Bright Red (mesmo que normal red para manter intensidade)
+export color10=$c4          # Bright Green
+export color11=$c3          # Bright Yellow
+export color12=$c6          # Bright Blue
+export color13=$c1          # Bright Magenta (Violeta)
+export color14=$c5          # Bright Cyan
+export color15=$c_white     # Bright White
+
+# --- Fundo e Texto Principal para prompt/outros ---
+export background=$ui_bg
+export foreground=$c_white

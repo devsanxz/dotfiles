@@ -2,112 +2,38 @@
 /* TEMA: "Hallwoeened Rainbowish Pro" - Arquivo de Lógica */
 
 /* 1. "Sourcing" (Import) das nossas 55 cores e aliases */
-/* @import url("colors.css"); */
+@import url("colors.css");
 
-
-/* ~/.config/waybar/colors.css */
-/* TEMA: "Rainbowish Pro" (Hierarquia Semântica) - 55 Cores */
-
-/* ========================================================== */
-/* --- NÍVEL 1: A PALETA (55 CORES) --- */
-/* ========================================================== */
-
-/* --- 1. PURPLE_BLACK (Base L=8%) --- */
-@define-color PURPLE_BLACK_DARKER #000000;
-@define-color PURPLE_BLACK_DARK #110011;
-@define-color PURPLE_BLACK #220022;
-@define-color PURPLE_BLACK_LIGHT #330033;
-@define-color PURPLE_BLACK_LIGHTER #440044;
-/* --- 2. RED (Base L=50%) --- */
-@define-color RED_DARKER #550000;
-@define-color RED_DARK #AA0000;
-@define-color RED #FF0000;
-@define-color RED_LIGHT #FF5555;
-@define-color RED_LIGHTER #FFAAAA;
-/* --- 3. ORANGE (Base L=50%) --- */
-@define-color ORANGE_DARKER #552B00;
-@define-color ORANGE_DARK #AA5500;
-@define-color ORANGE #FF8000;
-@define-color ORANGE_LIGHT #FFAA55;
-@define-color ORANGE_LIGHTER #FFD5AA;
-/* --- 4. YELLOW (Base L=50%) --- */
-@define-color YELLOW_DARKER #555500;
-@define-color YELLOW_DARK #AAAA00;
-@define-color YELLOW #FFFF00;
-@define-color YELLOW_LIGHT #FFFF55;
-@define-color YELLOW_LIGHTER #FFFFAA;
-/* --- 5. GREEN (Base L=50%) --- */
-@define-color GREEN_DARKER #005500;
-@define-color GREEN_DARK #00AA00;
-@define-color GREEN #00FF00;
-@define-color GREEN_LIGHT #55FF55;
-@define-color GREEN_LIGHTER #AAFFAA;
-/* --- 6. BLUE (Base L=50%) --- */
-@define-color BLUE_DARKER #000055;
-@define-color BLUE_DARK #0000AA;
-@define-color BLUE #0000FF;
-@define-color BLUE_LIGHT #5555FF;
-@define-color BLUE_LIGHTER #AAAAFF;
-/* --- 7. INDIGO (Base L=50%) --- */
-@define-color INDIGO_DARKER #220055;
-@define-color INDIGO_DARK #4400AA;
-@define-color INDIGO #6600FF;
-@define-color INDIGO_LIGHT #9955FF;
-@define-color INDIGO_LIGHTER #CCAAFF;
-/* --- 8. VIOLET (Base L=50%) --- */
-@define-color VIOLET_DARKER #440055;
-@define-color VIOLET_DARK #8800AA;
-@define-color VIOLET #CC00FF;
-@define-color VIOLET_LIGHT #DD55FF;
-@define-color VIOLET_LIGHTER #EEAAFF;
-/* --- 9. PURPLE_WHITE (Base L=90%) --- */
-@define-color PURPLE_WHITE_DARKER #FF99FF;
-@define-color PURPLE_WHITE_DARK #FFB2FF;
-@define-color PURPLE_WHITE #FFCCFF;
-@define-color PURPLE_WHITE_LIGHT #FFE5FF;
-@define-color PURPLE_WHITE_LIGHTER #FFFFFF;
-/* --- 10. CYAN (Base L=50%) --- */
-@define-color CYAN_DARKER #004455;
-@define-color CYAN_DARK #0088AA;
-@define-color CYAN #00CCFF;
-@define-color CYAN_LIGHT #55DDFF;
-@define-color CYAN_LIGHTER #AAEEFF;
-/* --- 11. CURSOR_LINE_BG (Base L=15%) --- */
-@define-color CURSOR_LINE_BG_DARKER #000000;
-@define-color CURSOR_LINE_BG_DARK #220022;
-@define-color CURSOR_LINE_BG #440044;
-@define-color CURSOR_LINE_BG_LIGHT #660066;
-@define-color CURSOR_LINE_BG_LIGHTER #880088;
 
 /* ========================================================== */
 /* --- NÍVEL 2: ALIASES SEMÂNTICOS (Sua Filosofia) --- */
 /* ========================================================== */
 
 /* --- Base (Relaxante) --- */
-@define-color bar-bg @PURPLE_BLACK_DARKER;     /* Fundo da Barra: #000000 */
-@define-color module-bg @PURPLE_BLACK_DARK;    /* Fundo Módulo: #110011 */
-@define-color module-hover @PURPLE_BLACK;      /* Fundo Módulo (Hover): #220022 */
-@define-color module-border @PURPLE_BLACK_LIGHTER; /* Borda sutil: #440044 */
-@define-color text-main @ORANGE_LIGHT;         /* Texto (Relaxante): #FFAA55 */
-@define-color text-muted @ORANGE_DARK;         /* Texto (Muted): #AA5500 */
-@define-color text-accent @ORANGE;           /* Acento (Laranja): #FF8000 */
+@define-color bar-bg @c0;         /* Fundo da Barra: #000000 (Preto) */
+@define-color module-bg @ui_bg;    /* Fundo Módulo: #110011 (Fundo Pílula) */
+@define-color module-hover @ui_border; /* Fundo Módulo (Hover): #440044 (Borda Pílula) */
+@define-color module-border @ui_border; /* Borda sutil: #440044 (Borda Pílula) */
+@define-color text-main @c2;         /* Texto (Relaxante): #FFAA55 (Laranja) */
+@define-color text-muted @c2;         /* Texto (Muted): #FFAA55 (Laranja) */
+@define-color text-accent @c2;       /* Acento (Laranja): #FFAA55 (Laranja) */
 
 /* --- "Escandalosa" (Baixa Frequência) --- */
-@define-color accent-rare @GREEN_LIGHT;        /* A cor mais chamativa: #55FF55 */
+@define-color accent-rare @c4;        /* A cor mais chamativa: #55FF55 (Verde) */
 
 /* --- Feedback --- */
-@define-color accent-warning @YELLOW;
-@define-color accent-critical @RED;
+@define-color accent-warning @c3; /* Amarelo */
+@define-color accent-critical @c_red; /* Vermelho */
 
 /* --- Ciclo Arco-Íris (para nth-child) --- */
-@define-color c8 @RED_LIGHT;
-@define-color c2 @ORANGE_LIGHT;
-@define-color c3 @YELLOW_LIGHT;
-@define-color c4 @GREEN_LIGHT;
-@define-color c5 @CYAN_LIGHT;
-@define-color c6 @BLUE_LIGHT;
-@define-color c7 @INDIGO_LIGHT;
-@define-color c1 @VIOLET_LIGHT;
+@define-color c8 @c_red; /* Vermelho */
+@define-color c2 @c2;    /* Laranja */
+@define-color c3 @c3;    /* Amarelo */
+@define-color c4 @c4;    /* Verde */
+@define-color c5 @c5;    /* Ciano */
+@define-color c6 @c6;    /* Azul */
+@define-color c7 @c7;    /* Anil */
+@define-color c1 @c1;    /* Violeta */
 
 /* 2. Reset Global (O *jeito certo* de usar *) */
 * {
@@ -121,15 +47,7 @@
 
 /* 3. A Barra Principal */
 
-window#waybar {
-    /* * Define o fundo ESTÁTICO (laranja) para a barra.
-     * A barra de baixo usará isso como padrão.
-     */
-    background: transparent;
-    /* * Define a cor de texto (preto) para todos os módulos
-     * (será herdada).
-     */
-    color: @bar-bg;
+    color: @c_white;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -146,7 +64,7 @@ window#waybar.workspace-4 { background: @c4; }
 window#waybar.workspace-5 { background: @c5; }
 window#waybar.workspace-6 { background: @c6; }
 window#waybar.workspace-7 { background: @c7; }
-window#waybar.workspace-8 { background: @c8; }
+window#waybar.workspace-8 { background: @c_red; }
 
 /* 4. Estilo "Pílula" Padrão para TODOS os Módulos */
 /* Isso cria a aparência moderna e espaçada */
@@ -230,7 +148,7 @@ window#waybar.workspace-8 { background: @c8; }
 /* ========================================================== */
 #submaps {
     color: @accent-rare;
-    background-color: @GREEN_DARKER;
+    background-color: @ui_bg;
     border: 1px solid @accent-rare;
     font-style: italic;
     font-weight: bold;

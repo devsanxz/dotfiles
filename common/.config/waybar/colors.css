@@ -1,0 +1,23 @@
+/* ~/.config/waybar/colors.css */
+
+/*
+ * PALETA DE 10 CORES (SSOT)
+ * Baseado em ~/.config/hypr/myColors.conf
+ */
+
+@define-color c0 #000000;         /* Preto */
+@define-color c_white #FFFFFF;    /* Branco */
+
+@define-color c1 #DD55FF;         /* Violeta */
+@define-color c2 #FFAA55;         /* Laranja */
+@define-color c3 #FFFF55;         /* Amarelo */
+@define-color c4 #55FF55;         /* Verde */
+@define-color c5 #55DDFF;         /* Ciano */
+@define-color c6 #5555FF;         /* Azul */
+@define-color c7 #9955FF;         /* Anil */
+@define-color c_red #FF5555;      /* Vermelho */
+
+/* Cores da UI */
+@define-color ui_bg #110011;      /* Fundo Pílula */
+@define-color ui_border #440044;  /* Borda Pílula */
+
