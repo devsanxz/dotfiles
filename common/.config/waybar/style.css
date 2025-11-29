@@ -1,9 +1,22 @@
 /* ~/.config/waybar/style.css */
 /* TEMA: "Hallwoeened Rainbowish Pro" - Arquivo de Lógica */
 
-/* 1. "Sourcing" (Import) das nossas 55 cores e aliases */
-@import url("colors.css");
+/* ========================================================== */
+/* --- NÍVEL 1: A PALETA (SSOT - INLINED) --- */
+/* ========================================================== */
 
+@define-color c0 #000000;         /* Preto */
+@define-color c_white #FFFFFF;    /* Branco */
+@define-color c1 #DD55FF;         /* Violeta */
+@define-color c2 #FFAA55;         /* Laranja */
+@define-color c3 #FFFF55;         /* Amarelo */
+@define-color c4 #55FF55;         /* Verde */
+@define-color c5 #55DDFF;         /* Ciano */
+@define-color c6 #5555FF;         /* Azul */
+@define-color c7 #9955FF;         /* Anil */
+@define-color c_red #FF5555;      /* Vermelho */
+@define-color ui_bg #110011;      /* Fundo Pílula */
+@define-color ui_border #440044;  /* Borda Pílula */
 
 /* ========================================================== */
 /* --- NÍVEL 2: ALIASES SEMÂNTICOS (Sua Filosofia) --- */
@@ -26,14 +39,8 @@
 @define-color accent-critical @c_red; /* Vermelho */
 
 /* --- Ciclo Arco-Íris (para nth-child) --- */
-@define-color c8 @c_red; /* Vermelho */
-@define-color c2 @c2;    /* Laranja */
-@define-color c3 @c3;    /* Amarelo */
-@define-color c4 @c4;    /* Verde */
-@define-color c5 @c5;    /* Ciano */
-@define-color c6 @c6;    /* Azul */
-@define-color c7 @c7;    /* Anil */
-@define-color c1 @c1;    /* Violeta */
+/* As cores c1 a c7 e c_red já estão definidas acima */
+@define-color c8 @c_red;
 
 /* 2. Reset Global (O *jeito certo* de usar *) */
 * {
@@ -41,12 +48,13 @@
     border-radius: 0;
     padding: 0;
     margin: 0;
-    font-size: 14px;
-    font-family: "JetBrains Mono", monospace;
+    font-size: 12pt;
+    font-family: "Fira Code Nerd Font Propo", monospace;
 }
 
 /* 3. A Barra Principal */
-
+window#waybar {
+    background: transparent;
     color: @c_white;
     transition-property: background-color;
     transition-duration: .5s;
@@ -68,7 +76,6 @@ window#waybar.workspace-8 { background: @c_red; }
 
 /* 4. Estilo "Pílula" Padrão para TODOS os Módulos */
 /* Isso cria a aparência moderna e espaçada */
-#workspaces,
 #submaps,
 #window,
 #clock,
@@ -80,7 +87,7 @@ window#waybar.workspace-8 { background: @c_red; }
 #tray,
 #keyboard-state {
     background-color: @module-bg;
-    padding: 2px 10px;
+    padding: 4px 5px 4px 3px;
     margin: 4px 2px; /* Margem vertical de 4px, horizontal de 2px */
     border: 1px solid @module-border;
     border-radius: 10px; /* Cantos arredondados */
@@ -103,6 +110,22 @@ window#waybar.workspace-8 { background: @c_red; }
 /* ========================================================== */
 /* --- WORKSPACES (com nth-child) --- */
 /* ========================================================== */
+
+#workspaces {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+#workspaces button {
+    background-color: @module-bg;
+    padding: 4px 5px 4px 3px;
+    margin: 4px 2px;
+    border: 1px solid @module-border;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
 #workspaces button > * {
     /* color: @text-muted; Cor padrão (Laranja escuro)  */
     background: transparent;
