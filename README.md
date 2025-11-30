@@ -1,65 +1,37 @@
-# 🚀 My Dotfiles (Arch Linux / Hyprland)
+# Dotfiles (SANXZ Environment)
 
-This is my personal command center for Arch Linux. The goal is to create a 100% cohesive *ricing* environment across `Hyprland`, `Waybar`, and `Neovim`, all using a unified color palette.
+A infraestrutura como código do meu ambiente de desenvolvimento pessoal (Arch Linux & Raspberry Pi).
 
-Management is handled via **GNU Stow** and a profile-based architecture (`common`, `note`, `pi`).
+## 🔧 Arquitetura
 
-![My Ricing](https://raw.githubusercontent.com/YOUR_USERNAME/dotfiles/main/screenshot.png)
+Este repositório utiliza **GNU Stow** para gerenciar symlinks de forma modular e limpa.
 
----
+### Estrutura de Perfis
+*   **`common/`**: Configurações universais (Neovim, Zsh, temas). Aplicado em todas as máquinas.
+*   **`note/`**: Configurações específicas para o Laptop (Arch Linux, Monitor 1080p, Hardware Graphics).
+*   **`pi/`**: Configurações otimizadas para Raspberry Pi (ARM, Scaling Nativo, Leveza).
 
-## 🛠️ The Tech Stack
+## 🎨 Tema SANXZ4
+Uma identidade visual unificada e proprietária, aplicada transversalmente:
+*   **Neovim:** Temas `sanxz4`, `sanxzmonored`, `sanxzwarmcool`, `sanxzcoolwarm`.
+*   **Hyprland & Waybar:** Variáveis globais centralizadas em `myColors.conf`.
+*   **Shell:** Zsh prompt e highlighting (Swap White/Violet).
+*   **Chromium:** Tema customizado "unpacked".
 
-This repository manages the configurations for the following stack:
+A paleta segue uma lógica de cores quentes/frias para separar *Ação* de *Estrutura*.
 
-* **OS:** Arch Linux (x86_64 & AArch64)
-* **WM:** Hyprland (Wayland Compositor)
-* **Bar:** Waybar (with custom modules)
-* **Editor:** Neovim (with a custom Lua theme)
-* **DM:** `greetd` + `tuigreet`
-* **Terminal:** `foot`
-* **Manager:** `stow`
+## 🛠️ Automação SRE
+*   **Centralização:** Variáveis de ambiente e Autostart movidos para arquivos globais (`environment.conf`, `base.conf`) para evitar duplicação e conflitos de dependência.
+*   **Sync:** Fluxo de trabalho GitOps rigoroso (Edita no Arch -> Push -> Pull no Pi).
+*   **Documentação:** Guias técnicos (ex: `hyprctl dispatch`) versionados junto com a config.
 
-## 🎨 The Palette (The Theme)
-
-The *ricing* is based on a 10-color palette (`c0-c8` + white) that is shared across `Waybar` (style.css), `Hyprland` (myColors.conf), and `Neovim` (sanxz4.lua).
-
-The "single source of truth" for this palette is defined in the style and configuration files.
-
----
-
-## 🏛️ Architecture (Profiles)
-
-This repository is **not** monolithic. It uses `stow` to manage multiple machine profiles:
-
-* **`common/`**
-    * 100% identical configurations shared by all machines.
-    * *Examples:* `Neovim`, `Zsh`, Waybar's `style.css`.
-
-* **`note/`**
-    * Specific configurations for my Notebook (x86_64).
-    * *Examples:* `hyprland.conf` (with full animations), Waybar's `config.jsonc` (2 bars).
-
-* **`pi/`**
-    * Specific configurations for my Raspberry Pi (AArch64).
-    * *Examples:* `hyprland.conf` (lighter), Waybar's `config.jsonc` (1 bar).
-
----
-
-## 🚀 Deployment (Bootstrap)
-
-This is the "Playbook" for bootstrapping a new machine.
-
-### 1. Prerequisites
-
-The target machine must have `git` and `stow` installed.
+## Como Instalar
 
 ```bash
-# On Arch Linux
-sudo pacman -S git stow
+git clone https://github.com/devsanxz/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+stow -R common <perfil_da_maquina>
+```
 
 ---
-
-This text was genrrated with the help of AI, some of those are plans to be coded
-
----
+*"As coisas são só as coisas, Case."*
