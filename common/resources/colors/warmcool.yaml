@@ -1,0 +1,38 @@
+# WARMCOOL Theme Definition
+meta:
+  name: "SANXZ Warm/Cool"
+  author: "Felipe Sanchez"
+  description: "Psychological split: Warm for Action, Cool for Structure."
+  type: "dark"
+
+palette:
+  # Base 16 (SANXZ Pure Palette)
+  c00_black: "#000000"
+  c01_red: "#FF0000"
+  c02_green: "#00FF00"
+  c03_yellow: "#FFFF00"
+  c04_blue: "#0000FF"
+  c05_violet: "#8000FF"
+  c06_cyan: "#00FFFF"
+  c07_white: "#FFFFFF"
+  # Brilhantes
+  c08_br_black: "#222222"
+  c09_br_red: "#FF5555"
+  c10_br_green: "#55FF55"
+  c11_br_yellow: "#FFFF77"
+  c12_br_blue: "#5555FF"
+  c13_br_violet: "#AA55FF"
+  c14_br_cyan: "#55FFFF"
+  c15_br_white: "#FFFFFF"
+
+semantic:
+  error: "#FF5555"
+  warning: "#FFFF77"
+  success: "#55FF55"
+  info: "#55FFFF"
+
+ui:
+  background: "#000000"
+  foreground: "#FFFFFF" # Texto principal branco (neutro)
+  border: "#222222"
+  selection: "#333333"

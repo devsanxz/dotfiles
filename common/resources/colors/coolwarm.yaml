@@ -1,0 +1,38 @@
+# COOLWARM Theme Definition
+meta:
+  name: "SANXZ Cool/Warm"
+  author: "Felipe Sanchez"
+  description: "Inverted logic: Cool for Action, Warm for Structure."
+  type: "dark"
+
+palette:
+  # Base 16 (SANXZ Pure Palette - Mesma base, uso diferente)
+  c00_black: "#000000"
+  c01_red: "#FF0000"
+  c02_green: "#00FF00"
+  c03_yellow: "#FFFF00"
+  c04_blue: "#0000FF"
+  c05_violet: "#8000FF"
+  c06_cyan: "#00FFFF"
+  c07_white: "#FFFFFF"
+  # Brilhantes
+  c08_br_black: "#331111" # Borda avermelhada
+  c09_br_red: "#FF5555"
+  c10_br_green: "#55FF55"
+  c11_br_yellow: "#FFFF77"
+  c12_br_blue: "#5555FF"
+  c13_br_violet: "#AA55FF"
+  c14_br_cyan: "#55FFFF"
+  c15_br_white: "#FFFFFF"
+
+semantic:
+  error: "#AA55FF" # Violeta (Frio) ou Vermelho mantido? Mantendo vermelho por segurança no YAML base.
+  warning: "#AA55FF"
+  success: "#55FFFF"
+  info: "#5555FF"
+
+ui:
+  background: "#000000"
+  foreground: "#FFFFFF"
+  border: "#331111"
+  selection: "#221111"

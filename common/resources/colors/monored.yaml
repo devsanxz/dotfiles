@@ -1,0 +1,38 @@
+# MONORED Theme Definition
+meta:
+  name: "SANXZ Monored"
+  author: "Felipe Sanchez"
+  description: "Monochromatic Red Intensity. Focus Mode."
+  type: "dark"
+
+palette:
+  # Base 16 (Red Scale)
+  c00_black: "#000000"
+  c01_red: "#FF0000"
+  c02_green: "#55FF55" # Semântico preservado
+  c03_yellow: "#FFFF55" # Semântico preservado
+  c04_blue: "#AA0000" # Azul vira vermelho escuro
+  c05_violet: "#CC3333" # Violeta vira vermelho médio
+  c06_cyan: "#FF5555" # Ciano vira vermelho claro
+  c07_white: "#FFCCCC" # Branco vira rosa pálido
+  # Brilhantes
+  c08_br_black: "#440000"
+  c09_br_red: "#FF5555"
+  c10_br_green: "#55FF55"
+  c11_br_yellow: "#FFFF55"
+  c12_br_blue: "#EE0000"
+  c13_br_violet: "#FF8888"
+  c14_br_cyan: "#FF9999"
+  c15_br_white: "#FFFFFF"
+
+semantic:
+  error: "#FF0000"
+  warning: "#FFFF55"
+  success: "#55FF55"
+  info: "#FF5555"
+
+ui:
+  background: "#1A0000" # Vermelho muito escuro
+  foreground: "#FF5555" # Vermelho vibrante
+  border: "#440000"
+  selection: "#660000"

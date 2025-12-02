@@ -1,0 +1,37 @@
+# SANXZ4 Theme Definition
+meta:
+  name: "SANXZ4"
+  author: "Felipe Sanchez"
+  description: "The Flagship Theme. Swap White/Violet signature."
+  type: "dark"
+
+palette:
+  # Base 16 ANSI
+  c00_black: "#000000"
+  c01_red: "#FF5555"
+  c02_green: "#55FF55"
+  c03_yellow: "#FFFF55"
+  c04_blue: "#5555FF"
+  c05_violet: "#DD55FF"
+  c06_cyan: "#55DDFF"
+  c07_white: "#FFFFFF"
+  c08_br_black: "#440044" # Usado como borda
+  c09_br_red: "#FF5555"
+  c10_br_green: "#55FF55"
+  c11_br_yellow: "#FFFF55"
+  c12_br_blue: "#5555FF"
+  c13_br_violet: "#DD55FF"
+  c14_br_cyan: "#55DDFF"
+  c15_br_white: "#FFFFFF"
+
+semantic:
+  error: "#FF0000"
+  warning: "#FFFF55"
+  success: "#55FF55"
+  info: "#55DDFF"
+
+ui:
+  background: "#110011" # Roxo muito escuro
+  foreground: "#DD55FF" # Violeta Neon
+  border: "#440044"
+  selection: "#220022"

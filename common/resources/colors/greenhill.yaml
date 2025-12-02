@@ -1,0 +1,38 @@
+# GREENHILL Theme Definition
+meta:
+  name: "Green Hill"
+  author: "Felipe Sanchez"
+  description: "Matrix Style. Pure Green Scale."
+  type: "dark"
+
+palette:
+  # Base 16 (Green Scale)
+  c00_black: "#000000"
+  c01_red: "#FF0000" # Mantido para erro semântico no terminal
+  c02_green: "#00AA00"
+  c03_yellow: "#FFFF55" # Mantido para aviso
+  c04_blue: "#004400" # Azul vira verde escuro
+  c05_violet: "#006600" # Violeta vira verde médio
+  c06_cyan: "#008800" # Ciano vira verde
+  c07_white: "#CCFFCC" # Branco vira verde pálido
+  # Brilhantes
+  c08_br_black: "#002200"
+  c09_br_red: "#FF5555"
+  c10_br_green: "#00FF00" # Neon
+  c11_br_yellow: "#FFFF77"
+  c12_br_blue: "#00FF88" # Digital Green
+  c13_br_violet: "#00EE00"
+  c14_br_cyan: "#AAFFAA"
+  c15_br_white: "#FFFFFF" # Exceção Semântica (Sucesso)
+
+semantic:
+  error: "#FF0000"
+  warning: "#FFFF55"
+  success: "#FFFFFF" # Branco puro (Destaque invertido)
+  info: "#00FF88"
+
+ui:
+  background: "#000000"
+  foreground: "#00AA00"
+  border: "#003300"
+  selection: "#002200"
