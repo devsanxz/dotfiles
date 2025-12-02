@@ -39,3 +39,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/resources/custom/theme-highlight.zsh
+
+# Daily Briefing (SRE Dashboard)
+if [ -f "$HOME/dotfiles/common/resources/scripts/daily_briefing.sh" ]; then
+    source "$HOME/dotfiles/common/resources/scripts/daily_briefing.sh"
+fi
