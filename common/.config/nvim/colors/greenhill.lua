@@ -1,6 +1,6 @@
 -- ~/.config/nvim/colors/greenhill.lua
--- TEMA: GREENHILL (Monocromático Verde - Estilo Matrix/Retro)
--- "A Colina Verde do Código"
+-- TEMA: GREENHILL (Monocromático Verde Puro - V2 Equidistante)
+-- Filosofia: 3 Semânticas Reservadas + 16 Tons de Verde
 
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
@@ -11,26 +11,35 @@ vim.g.colors_name = "greenhill"
 vim.opt.termguicolors = true
 
 -- ==========================================================
--- 1. A PALETA (Green Hill Scale + Semantics)
+-- 1. A PALETA
 -- ==========================================================
 local c = {
-        -- Neutros
-        black = "#000000", -- O Vazio
-        white = "#EEFFEE", -- Branco Tintado de Verde
+        -- 1. Semântica Reservada (Exceções)
+        sem_success = "#FFFFFF", -- Branco Puro (Substitui o Verde semântico)
+        sem_warn    = "#FFFF00", -- Amarelo Puro
+        sem_error   = "#FF0000", -- Vermelho Puro
+        
+        -- Neutro Base
+        black = "#000000",
 
-        -- Semântica (Padrão SANXZ - A Realidade)
-        red_error = "#FF0000",
-        yellow_warn = "#FFFF55",
-        green_ok = "#55FF55",
-
-        -- Escala Green Hill
-        gh_darkest = "#001100", -- UI Backgrounds sutis
-        gh_dark = "#003300",    -- Bordas, linhas, inativos
-        gh_dim = "#006600",     -- Comentários, não-focados
-        gh_base = "#00AA00",    -- Texto padrão (código)
-        gh_neon = "#00FF00",    -- Destaques, Funções, Keywords
-        gh_digital = "#00FF88", -- Variável, Tipos (levemente ciano)
-        gh_pale = "#CCFFCC",    -- Números, Constantes (alto contraste)
+        -- 2. Os 16 Tons de Verde (Green Hill Scale)
+        -- Do mais escuro (#001100) ao mais brilhante (#AAFFHH)
+        g01 = "#001100", -- UI Background
+        g02 = "#002200", -- CursorLine
+        g03 = "#003300", -- Selection
+        g04 = "#004400", -- Borders
+        g05 = "#005500", -- Comments Dim
+        g06 = "#006600", -- Comments Bright
+        g07 = "#007700", -- UI Elements
+        g08 = "#008800", -- Dark Text
+        g09 = "#009900", -- Operators
+        g10 = "#00AA00", -- Normal Text Base
+        g11 = "#00BB00", -- PreProc
+        g12 = "#00CC00", -- Identifiers
+        g13 = "#00DD00", -- Types
+        g14 = "#00EE00", -- Keywords
+        g15 = "#00FF00", -- Functions / Neon Pure
+        g16 = "#CCFFCC", -- Constants / Pale Green (Quase branco)
 
         none = "NONE",
 }
@@ -47,61 +56,67 @@ local function hl(group, fg, bg, attr)
 end
 
 -- ==========================================================
--- 3. MAPEAMENTO (Entering the Green Hill)
+-- 3. MAPEAMENTO (The Gradient)
 -- ==========================================================
 
 -- --- Editor Base ---
-hl("Normal", c.gh_base, c.black)
-hl("NormalFloat", c.gh_base, c.gh_darkest)
+hl("Normal", c.g10, c.black)      -- Texto base num verde médio agradável
+hl("NormalFloat", c.g10, c.g01)
 hl("SignColumn", nil, c.black)
 
-hl("LineNr", c.gh_dark, nil)
-hl("CursorLine", nil, c.gh_darkest)
-hl("CursorLineNr", c.gh_neon, nil, "bold")
-hl("EndOfBuffer", c.gh_dark, nil)
+hl("LineNr", c.g04, nil)
+hl("CursorLine", nil, c.g02)
+hl("CursorLineNr", c.g15, nil, "bold") -- Linha atual brilha neon
+hl("EndOfBuffer", c.g03, nil)
 
--- --- Sintaxe ---
-hl("Comment", c.gh_dim, nil, "italic")
+-- --- Sintaxe (Somente Verdes) ---
+hl("Comment", c.g05, nil, "italic")
 
-hl("String", c.gh_digital) -- Um verde mais "frio"
-hl("Character", c.gh_digital)
+hl("Operator", c.g09)
+hl("Identifier", c.g12)
+hl("PreProc", c.g11)
+hl("Include", c.g11)
+hl("Macro", c.g11)
 
-hl("Number", c.gh_pale) -- Quase branco, salta aos olhos
-hl("Boolean", c.gh_pale)
-hl("Float", c.gh_pale)
+hl("Type", c.g13)
+hl("StorageClass", c.g13)
+hl("Structure", c.g13)
+hl("Typedef", c.g13)
 
-hl("Function", c.gh_neon, nil, "bold") -- O brilho principal
-hl("Keyword", c.gh_neon)
-hl("Conditional", c.gh_neon)
-hl("Repeat", c.gh_neon)
-hl("Statement", c.gh_neon)
+hl("Keyword", c.g14)
+hl("Statement", c.g14)
+hl("Conditional", c.g14)
+hl("Repeat", c.g14)
+hl("Label", c.g14)
 
-hl("PreProc", c.gh_base)
-hl("Include", c.gh_base)
-hl("Define", c.gh_base)
-hl("Macro", c.gh_base)
+hl("Function", c.g15, nil, "bold") -- Neon puro
+hl("Special", c.g15)
 
-hl("Type", c.gh_digital)
-hl("Operator", c.gh_neon) -- Operadores brilham
-hl("Constant", c.gh_pale)
-hl("Special", c.gh_digital)
+hl("Number", c.g16) -- Verde pálido (destaque de valor)
+hl("Boolean", c.g16)
+hl("Float", c.g16)
+hl("Constant", c.g16)
 
-hl("Identifier", c.white) -- Identificadores ficam quase brancos para legibilidade
+-- --- Exceção Semântica 1: Sucesso/String -> BRANCO ---
+hl("String", c.sem_success) 
+hl("Character", c.sem_success)
 
 -- --- Interface ---
-hl("Search", c.black, c.gh_neon) -- Invertido: Texto preto em fundo Neon
-hl("Visual", nil, c.gh_dark)
-hl("MatchParen", c.gh_neon, c.gh_dark, "bold")
+hl("Search", c.black, c.g15) -- Texto preto em fundo Neon
+hl("Visual", nil, c.g03)
+hl("MatchParen", c.sem_success, c.g04, "bold") -- Branco no parenteses
 
--- --- Semântica ---
-hl("Error", c.red_error, nil, "bold")
-hl("ErrorMsg", c.red_error, nil, "bold")
-hl("WarningMsg", c.yellow_warn, nil, "bold")
-hl("DiagnosticError", c.red_error)
-hl("DiagnosticWarn", c.yellow_warn)
-hl("DiagnosticInfo", c.gh_digital)
-hl("DiagnosticHint", c.gh_dim)
+-- --- Exceção Semântica 2 & 3: Aviso/Erro ---
+hl("Error", c.sem_error, nil, "bold")
+hl("ErrorMsg", c.sem_error, nil, "bold")
+hl("WarningMsg", c.sem_warn, nil, "bold")
+
+hl("DiagnosticError", c.sem_error)
+hl("DiagnosticWarn", c.sem_warn)
+hl("DiagnosticInfo", c.g13) -- Info continua verde (Type level)
+hl("DiagnosticHint", c.g06) -- Hint continua verde (Comment level)
+hl("DiagnosticOk", c.sem_success) -- Branco
 
 -- --- Menus ---
-hl("Pmenu", c.gh_base, c.gh_darkest)
-hl("PmenuSel", c.black, c.gh_neon)
+hl("Pmenu", c.g12, c.g01)
+hl("PmenuSel", c.black, c.g15)
