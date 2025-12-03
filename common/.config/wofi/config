@@ -1,0 +1,12 @@
+mode=drun
+width=600
+height=400
+location=center
+show_all=true
+print_command=true
+insensitive=true
+prompt=Search...
+layer=overlay
+allow_images=true
+image_size=24
+columns=1
