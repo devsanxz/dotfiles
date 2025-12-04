@@ -7,8 +7,8 @@ class ZshProvider(ThemeProvider):
         return "Zsh Shell"
 
     def get_config_path(self) -> Path:
-        # Saves to a file that .zshrc can source
-        return Path.home() / ".config/shell/theme.zsh"
+        # Saves to the file sourced by .zshrc
+        return Path.home() / "resources/custom/colors.zsh"
 
     def get_main_config_path(self) -> Path:
         return Path.home() / ".zshrc"

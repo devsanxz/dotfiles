@@ -12,13 +12,13 @@ from providers.zsh import ZshProvider
 
 def get_theme_path(theme_name, base_dir):
     """Resolves the theme YAML file path."""
-    # Relative path to dotfiles/common/resources/colors
-    theme_file = base_dir.resolve().parents[1] / "common/resources/colors" / f"{theme_name}.yaml"
+    # Uses the stable link ~/resources/colors
+    theme_file = Path.home() / "resources/colors" / f"{theme_name}.yaml"
     return theme_file
 
 def list_themes(base_dir):
     """Lists available theme YAML files."""
-    colors_dir = base_dir.resolve().parents[1] / "common/resources/colors"
+    colors_dir = Path.home() / "resources/colors"
     if not colors_dir.exists():
         print(f"Error: Theme directory not found at {colors_dir}")
         return

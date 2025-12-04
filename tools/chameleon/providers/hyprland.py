@@ -9,7 +9,7 @@ class HyprlandProvider(ThemeProvider):
         return "Hyprland"
 
     def get_config_path(self) -> Path:
-        return Path.home() / ".config/hypr/theme.conf"
+        return Path.home() / ".config/hypr/myColors.conf"
 
     def get_main_config_path(self) -> Path:
         return Path.home() / ".config/hypr/hyprland.conf"
