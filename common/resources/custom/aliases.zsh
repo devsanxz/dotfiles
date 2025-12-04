@@ -11,3 +11,4 @@ alias lst='eza -T --smart-group --header --total-size --no-user --no-time --clas
 alias '$ '='sudo '
 
 alias snes='snes9x -conf /home/san/.snes9x/snes9x.conf -xvideo -soundsync'
+alias chameleon='python3 ~/dotfiles/tools/chameleon/main.py'
