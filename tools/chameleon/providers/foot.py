@@ -14,10 +14,6 @@ class FootProvider(ThemeProvider):
     def get_main_config_path(self) -> Path:
         return Path.home() / ".config/foot/foot.ini"
 
-    @property
-    def include_format(self) -> str:
-        return "include={path}"
-
     def generate_content(self, data: dict) -> str:
         p = data.get('palette', {})
         ui = data.get('ui', {})
@@ -53,3 +49,52 @@ class FootProvider(ThemeProvider):
             f"bright7={no_hash(p.get('c15_br_white'))}",
         ]
         return "\n".join(lines)
+
+    @property
+    def include_format(self) -> str:
+        return "include={path}"
+
+    def check_integration(self):
+        """
+        Specialized integration check for Foot.
+        Foot requires 'include=' to be at the top level (global), preferably at the start of the file.
+        Appending it to the end often puts it inside a [section], which causes errors.
+        """
+        if self.dry_run: return
+
+        main_conf = self.get_main_config_path()
+        theme_conf = self.get_config_path()
+
+        if not main_conf.exists():
+            return
+
+        # Check if already included
+        with open(main_conf, 'r') as f:
+            if str(theme_conf) in f.read() or theme_conf.name in f.read():
+                return
+
+        # Not found, ask user
+        print(f"⚠️  [{self.name}] Theme file is NOT included in {main_conf.name}.")
+        print(f"   Required line: {self.include_format.format(path=theme_conf)}")
+        print(f"   (Note: This will be added to the TOP of the file)")
+        
+        try:
+            choice = input(f"   >> Prepend this line automatically? [y/N] ").strip().lower()
+        except EOFError:
+            choice = 'n'
+        
+        if choice == 'y':
+            try:
+                with open(main_conf, 'r') as f:
+                    original_content = f.read()
+                
+                with open(main_conf, 'w') as f:
+                    f.write(f"# Chameleon Theme Integration\n")
+                    f.write(self.include_format.format(path=theme_conf) + "\n")
+                    f.write(original_content)
+                
+                print(f"   ✅ Prepended include to {main_conf.name}")
+            except Exception as e:
+                print(f"   ❌ Error modifying file: {e}")
+        else:
+            print(f"   ℹ️  Skipping auto-integration.")

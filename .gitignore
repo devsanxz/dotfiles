@@ -1,3 +1,13 @@
 
 # Ignorar chaves de API sensíveis
 common/resources/keys/googleapi.txt
+
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# Chameleon Generated Themes
+theme.ini
+theme.conf
+theme.zsh
+theme.css
