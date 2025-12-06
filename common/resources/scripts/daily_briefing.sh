@@ -18,7 +18,7 @@ RESET="\033[0m"
 if [ -f "$DATA_FILE" ]; then
     LAST_RUN=$(cat "$DATA_FILE")
     if [ "$LAST_RUN" == "$TODAY" ]; then
-        exit 0 # Já rodou, sai silenciosamente
+        return 0 # Já rodou, sai silenciosamente
     fi
 fi
 
