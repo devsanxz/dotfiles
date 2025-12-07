@@ -11,3 +11,6 @@ theme.ini
 theme.conf
 theme.zsh
 theme.css
+
+# Gemini Context Files
+GEMINI*.md
