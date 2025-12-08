@@ -30,9 +30,10 @@ python3 main.py apply sanxz4 --dry-run
 - [x] **Hyprland** (Generates `$variables`)
 - [x] **Foot Terminal** (Generates `[colors]` section)
 - [x] **Waybar** (Generates `@define-color` CSS)
-- [x] **Zsh** (Exports `$ENV_VARS`)
-- [ ] **Neovim** (Updates generic global link or env var)
-- [ ] **Wofi** (CSS)
+- [x] **Zsh** (Exports `$ENV_VARS` + Syntax Highlighting)
+- [x] **Neovim** (Generates Lua module)
+- [x] **Wofi** (Generates CSS variables)
+- [x] **GTK 3/4** (Generates `gtk.css` overrides)
 
 ## Directory Structure
 
