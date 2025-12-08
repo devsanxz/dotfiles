@@ -6,6 +6,10 @@ from utils.parser import parse_yaml
 from providers.hyprland import HyprlandProvider
 from providers.foot import FootProvider
 from providers.zsh import ZshProvider
+from providers.waybar import WaybarProvider
+from providers.nvim import NeovimProvider
+from providers.wofi import WofiProvider
+from providers.gtk import GtkProvider
 
 # Providers will be imported here
 # from providers.hyprland import HyprlandProvider
@@ -69,6 +73,10 @@ def main():
         providers.append(HyprlandProvider(args.dry_run))
         providers.append(FootProvider(args.dry_run))
         providers.append(ZshProvider(args.dry_run))
+        providers.append(WaybarProvider(args.dry_run))
+        providers.append(NeovimProvider(args.dry_run))
+        providers.append(WofiProvider(args.dry_run))
+        providers.append(GtkProvider(args.dry_run))
         
         # Filter providers if --apps arg is present
         if args.apps:

@@ -1,38 +1,39 @@
-# MONORED Theme Definition
+# MONORED Theme Definition (Remastered v2)
 meta:
   name: "SANXZ Monored"
   author: "Felipe Sanchez"
-  description: "Monochromatic Red Intensity. Focus Mode."
+  description: "Monochromatic Red Intensity. Sith/Focus Mode."
   type: "dark"
 
 palette:
   # Base 16 (Red Scale)
-  c00_black: "#000000"
-  c01_red: "#FF0000"
-  c02_green: "#55FF55" # Semântico preservado
-  c03_yellow: "#FFFF55" # Semântico preservado
-  c04_blue: "#AA0000" # Azul vira vermelho escuro
-  c05_violet: "#CC3333" # Violeta vira vermelho médio
-  c06_cyan: "#FF5555" # Ciano vira vermelho claro
-  c07_white: "#FFCCCC" # Branco vira rosa pálido
-  # Brilhantes
-  c08_br_black: "#440000"
-  c09_br_red: "#FF5555"
-  c10_br_green: "#55FF55"
-  c11_br_yellow: "#FFFF55"
-  c12_br_blue: "#EE0000"
-  c13_br_violet: "#FF8888"
-  c14_br_cyan: "#FF9999"
-  c15_br_white: "#FFFFFF"
+  c00_black: "#050000"      # Fundo Ominous (Quase preto)
+  c01_red: "#CC0000"        # Erro (Vermelho Sangue)
+  c02_green: "#55FF55"      # Verde Semântico (Preservado para segurança)
+  c03_yellow: "#FFFF55"     # Amarelo Semântico (Preservado)
+  c04_blue: "#660000"       # Azul -> Vermelho Escuro
+  c05_violet: "#990000"     # Violeta -> Vermelho Médio
+  c06_cyan: "#FF4444"       # Ciano -> Vermelho Claro
+  c07_white: "#FFAAAA"      # Branco -> Rosa Pálido
+
+  # Brilhantes (High Intensity - Mapped for Waybar Aesthetics)
+  c08_br_black: "#330000"   # Borda
+  c09_br_red: "#FF0000"     # Erro Brilhante
+  c10_br_green: "#FF0000"   # W1: NEON RED (Override Estético)
+  c11_br_yellow: "#FF8800"  # Amarelo -> Laranja Fogo
+  c12_br_blue: "#FF2222"    # W2: Digital Red (Ligeiramente menos neon)
+  c13_br_violet: "#FF6666"  # W3: Light Red (Substitui Amarelo do Waybar)
+  c14_br_cyan: "#FFAAAA"    # W4: Pale Red (Substitui Ciano)
+  c15_br_white: "#FFFFFF"   # Branco Puro (Contraste Máximo)
 
 semantic:
   error: "#FF0000"
   warning: "#FFFF55"
-  success: "#55FF55"
-  info: "#FF5555"
+  success: "#55FF55"        # Verde Real
+  info: "#FF4444"           # Informação em Vermelho Claro
 
 ui:
-  background: "#1A0000" # Vermelho muito escuro
-  foreground: "#FF5555" # Vermelho vibrante
+  background: "#050000"     # Sith Black
+  foreground: "#FF0000"     # Texto Neon Red
   border: "#440000"
-  selection: "#660000"
+  selection: "#440000"

@@ -1040,7 +1040,11 @@ require("lazy").setup({
 	},
 })
 
-vim.cmd.colorscheme("sanxz4")
+-- Tenta carregar o tema dinâmico do Chameleon, fallback para sanxz4
+local status_ok, _ = pcall(require, "current_theme")
+if not status_ok then
+	vim.cmd.colorscheme("sanxz4")
+end
 
 -- ADMIN INSERT
 --

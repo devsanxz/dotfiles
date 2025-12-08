@@ -17,7 +17,7 @@ RESET="\033[0m"
 # Verifica se já rodou hoje
 if [ -f "$DATA_FILE" ]; then
     LAST_RUN=$(cat "$DATA_FILE")
-    if [ "$LAST_RUN" == "$TODAY" ]; then
+    if [ "$LAST_RUN" = "$TODAY" ]; then
         return 0 # Já rodou, sai silenciosamente
     fi
 fi
@@ -38,7 +38,8 @@ fi
 
 # 2. Manutenção do Sistema (Yay)
 echo -e "${GREEN}[ MANUTENÇÃO ]${RESET}"
-read -p "Deseja atualizar o sistema (yay -Syu)? [y/N] " response
+echo -n "Deseja atualizar o sistema (yay -Syu)? [y/N] "
+read response
 if [[ "$response" =~ ^[yY]$ ]]; then
     echo "Iniciando atualização..."
     yay -Syu

@@ -2,6 +2,7 @@ from pathlib import Path
 from .base import ThemeProvider
 import os
 import shutil
+import subprocess
 
 class HyprlandProvider(ThemeProvider):
     @property
@@ -66,7 +67,18 @@ class HyprlandProvider(ThemeProvider):
 
     def reload(self):
         if self.is_available():
-            # Use quiet flag or redirect output if needed
-            # os.system("hyprctl reload > /dev/null 2>&1")
             print("[Hyprland] Reloading via hyprctl...")
-            os.system("hyprctl reload")
+            try:
+                # Using subprocess is safer and allows capturing output/errors
+                result = subprocess.run(
+                    ["hyprctl", "reload"], 
+                    check=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True
+                )
+                # Optional: print(result.stdout) if verbose
+            except subprocess.CalledProcessError as e:
+                print(f"❌ [Hyprland] Reload failed: {e.stderr.strip()}")
+            except Exception as e:
+                print(f"❌ [Hyprland] Unexpected error during reload: {e}")

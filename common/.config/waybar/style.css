@@ -5,18 +5,26 @@
 /* --- NÍVEL 1: A PALETA (SSOT - INLINED) --- */
 /* ========================================================== */
 
-@define-color c0 #000000;         /* Preto */
-@define-color c_white #FFFFFF;    /* Branco */
-@define-color c1 #DD55FF;         /* Violeta */
-@define-color c2 #FFAA55;         /* Laranja */
-@define-color c3 #FFFF55;         /* Amarelo */
-@define-color c4 #55FF55;         /* Verde */
-@define-color c5 #55DDFF;         /* Ciano */
-@define-color c6 #5555FF;         /* Azul */
-@define-color c7 #9955FF;         /* Anil */
-@define-color c_red #FF5555;      /* Vermelho */
-@define-color ui_bg #110011;      /* Fundo Pílula */
-@define-color ui_border #440044;  /* Borda Pílula */
+/* Chameleon Theme Integration */
+@import '/home/san/.config/waybar/colors.css';
+
+/* Mapping Chameleon Variables to Local Logic */
+@define-color c0 @c00_black;
+@define-color c_white @c07_white;
+@define-color c1 @c10_br_green; /* W1: Neon */
+@define-color c2 @c12_br_blue;  /* W2: Digital/Aqua */
+@define-color c3 @c13_br_violet;/* W3: Keyword Green (No Yellow) */
+@define-color c4 @c14_br_cyan;  /* W4: Pale/Phosphor */
+@define-color c5 @c10_br_green;    /* W5: Pure Green */
+@define-color c6 @c12_br_blue;  /* W6: Digital/Aqua (Lightened) */
+@define-color c7 @c14_br_cyan;  /* W7: Pale */
+@define-color c_red @c01_red;   /* Semantic Error (Preserved) */
+
+@define-color ui_bg @background;
+@define-color ui_border @border;
+
+@define-color ui_bg @background;
+@define-color ui_border @border;
 
 /* ========================================================== */
 /* --- NÍVEL 2: ALIASES SEMÂNTICOS (Sua Filosofia) --- */
@@ -43,6 +51,7 @@
 @define-color c8 @c_red;
 
 /* 2. Reset Global (O *jeito certo* de usar *) */
+
 * {
     border: none;
     border-radius: 0;

@@ -1,31 +1,32 @@
-/* SANXZ4 Theme for Wofi */
+/* Chameleon Theme Integration */
+@import '/home/san/.config/wofi/colors.css';
 
 window {
     margin: 0px;
-    border: 2px solid #440044; /* c08_br_black */
-    background-color: #110011; /* ui.background */
+    border: 2px solid @border;
+    background-color: @background;
     border-radius: 12px;
-    font-family: "FiraCode Nerd Font Mono", monospace; /* Assuming font, fallback to monospace */
+    font-family: "FiraCode Nerd Font Mono", monospace;
     font-size: 14px;
 }
 
 #input {
     margin: 10px;
     padding: 10px;
-    border: 2px solid #440044; /* c08_br_black */
-    color: #DD55FF; /* ui.foreground */
-    background-color: #110011; /* ui.background */
+    border: 2px solid @border;
+    color: @foreground;
+    background-color: @background;
     border-radius: 8px;
 }
 
 #inner-box {
     margin: 10px;
-    background-color: #110011;
+    background-color: @background;
 }
 
 #outer-box {
     margin: 5px;
-    background-color: #110011;
+    background-color: @background;
 }
 
 #scroll {
@@ -36,7 +37,7 @@ window {
 #text {
     margin: 5px;
     border: none;
-    color: #FFFFFF; /* c07_white */
+    color: @c07_white;
 }
 
 #entry {
@@ -47,11 +48,11 @@ window {
 }
 
 #entry:selected {
-    background-color: #DD55FF; /* c05_violet */
-    color: #110011; /* ui.background */
+    background-color: @c05_violet;
+    color: @background;
 }
 
 #entry:selected #text {
-    color: #110011;
+    color: @background;
     font-weight: bold;
 }

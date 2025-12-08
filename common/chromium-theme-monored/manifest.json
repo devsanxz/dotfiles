@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Monored Theme",
+  "description": "Sith Style Red Scale Theme for SRE Sanchez",
+  "theme": {
+    "colors": {
+      "frame": [5, 0, 0],
+      "frame_inactive": [5, 0, 0],
+      "frame_incognito": [5, 0, 0],
+      "frame_incognito_inactive": [5, 0, 0],
+      "background_tab": [5, 0, 0],
+      "background_tab_inactive": [51, 0, 0],
+      "background_tab_incognito": [5, 0, 0],
+      "background_tab_incognito_inactive": [51, 0, 0],
+      "bookmark_text": [255, 0, 0],
+      "tab_background_text": [255, 170, 170],
+      "tab_text": [255, 0, 0],
+      "toolbar": [5, 0, 0],
+      "ntp_background": [5, 0, 0],
+      "ntp_text": [255, 0, 0],
+      "omnibox_background": [0, 0, 0],
+      "omnibox_text": [255, 0, 0]
+    }
+  }
+}
