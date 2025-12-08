@@ -9,6 +9,11 @@
 3.  **Smart Detection:** Only generates configs for applications currently installed on your system.
 4.  **Extensible:** Plugin-based architecture makes it easy to add support for new apps.
 
+## Requirements
+
+*   **Python 3.8+**
+*   **No external dependencies:** Uses only the Python Standard Library (`pathlib`, `json`, `subprocess`, etc.) for maximum portability and minimal footprint.
+
 ## Usage
 
 ```bash
