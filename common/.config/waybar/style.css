@@ -11,14 +11,15 @@
 /* Mapping Chameleon Variables to Local Logic */
 @define-color c0 @c00_black;
 @define-color c_white @c07_white;
-@define-color c1 @c10_br_green; /* W1: Neon */
-@define-color c2 @c12_br_blue;  /* W2: Digital/Aqua */
-@define-color c3 @c13_br_violet;/* W3: Keyword Green (No Yellow) */
-@define-color c4 @c14_br_cyan;  /* W4: Pale/Phosphor */
-@define-color c5 @c10_br_green;    /* W5: Pure Green */
-@define-color c6 @c12_br_blue;  /* W6: Digital/Aqua (Lightened) */
-@define-color c7 @c14_br_cyan;  /* W7: Pale */
-@define-color c_red @c01_red;   /* Semantic Error (Preserved) */
+/* ANSI Mapping for Dynamic Theming */
+@define-color c1 @c05_violet;   /* W1 */
+@define-color c2 @c04_blue;     /* W2 */
+@define-color c3 @c06_cyan;     /* W3 */
+@define-color c4 @c02_green;    /* W4 */
+@define-color c5 @c03_yellow;   /* W5 */
+@define-color c6 @c01_red;      /* W6 */
+@define-color c7 @c07_white;    /* W7 */
+@define-color c_red @c01_red;   /* Semantic Error */
 
 @define-color ui_bg @background;
 @define-color ui_border @border;
