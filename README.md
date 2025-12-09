@@ -10,6 +10,7 @@ Este repositório utiliza **GNU Stow** para gerenciar symlinks de forma modular 
 *   **`common/`**: Configurações universais (Neovim, Zsh, temas). Aplicado em todas as máquinas.
 *   **`note/`**: Configurações específicas para o Laptop (Arch Linux, Monitor 1080p, Hardware Graphics).
 *   **`pi/`**: Configurações otimizadas para Raspberry Pi (ARM, Scaling Nativo, Leveza).
+    > [Ver Guia de Setup do Pi (RGB Fix & Tuning)](common/docs/RASPBERRY_PI_SETUP.md)
 
 ### Fluxo de Dados (Chameleon Engine)
 ```mermaid
