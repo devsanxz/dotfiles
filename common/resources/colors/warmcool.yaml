@@ -6,33 +6,32 @@ meta:
   type: "dark"
 
 palette:
-  # Base 16 (SANXZ Pure Palette)
-  c00_black: "#000000"
-  c01_red: "#FF0000"
-  c02_green: "#00FF00"
-  c03_yellow: "#FFFF00"
-  c04_blue: "#0000FF"
-  c05_violet: "#8000FF"
-  c06_cyan: "#00FFFF"
-  c07_white: "#FFFFFF"
-  # Brilhantes
-  c08_br_black: "#222222"
-  c09_br_red: "#FF5555"
-  c10_br_green: "#55FF55"
-  c11_br_yellow: "#FFFF77"
-  c12_br_blue: "#5555FF"
-  c13_br_violet: "#AA55FF"
-  c14_br_cyan: "#55FFFF"
-  c15_br_white: "#FFFFFF"
+  # Base 16 (Interleaved P-W-C-W Logic)
+  c00_black: "#050010"
+  c01_red: "#FF00FF"
+  c02_green: "#FFFF55"
+  c03_yellow: "#AAFF00"
+  c04_blue: "#FFCC00"
+  c05_violet: "#DD55FF"
+  c06_cyan: "#FF8800"
+  c07_white: "#DDBBFF"
+  c08_br_black: "#330055"
+  c09_br_red: "#00FFFF"
+  c10_br_green: "#FF5555"
+  c11_br_yellow: "#6600FF"
+  c12_br_blue: "#DD2222"
+  c13_br_violet: "#00AAAA"
+  c14_br_cyan: "#2222FF"
+  c15_br_white: "#F0E0FF"
 
 semantic:
-  error: "#FF0000"         # Vermelho Real (Segurança)
-  warning: "#FFFF00"       # Amarelo Real
-  success: "#55FF55"       # Verde
-  info: "#55FFFF"          # Ciano
+  error: "#FF0000"         # Vermelho Puro
+  warning: "#FFFF00"       # Amarelo Puro
+  success: "#00FF00"       # Verde Puro
+  info: "#44AAFF"          # Azul Dodger
 
 ui:
   background: "#000008"    # Cool Black (Estrutura Fria)
-  foreground: "#FF5555"    # Warm Red (Ação Quente - Texto Neon)
+  foreground: "#FF8800"    # Warm Orange (Ação Quente)
   border: "#000044"        # Cool Blue Border
   selection: "#440000"     # Warm Red Selection

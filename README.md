@@ -25,16 +25,23 @@ graph TD
     style B fill:#DD55FF,stroke:#fff,stroke-width:2px,color:#000
 ```
 
-## 🎨 Tema SANXZ4
-Uma identidade visual unificada e proprietária, aplicada transversalmente.
-> Consulte a [Teoria das Cores SANXZ](common/docs/SAN_COLORS.md) para detalhes técnicos sobre a paleta e filosofia.
+## 🎨 Temas & Identidade Visual (v2.1)
+O ecossistema utiliza a engine **Chameleon** para gerenciar 5 temas remasterizados com lógica de "Segurança Semântica":
 
-*   **Neovim:** Temas `sanxz4`, `sanxzmonored`, `sanxzwarmcool`, `sanxzcoolwarm`.
-*   **Hyprland & Waybar:** Variáveis globais centralizadas em `myColors.conf`.
-*   **Shell:** Zsh prompt e highlighting (Swap White/Violet).
-*   **Chromium:** Tema customizado "unpacked".
+*   **SANXZ4 (Flagship):** Violet-Base Dark Rainbow com lógica P-W-C-W (Intercalada).
+*   **Monored:** Escala monocromática vermelha (Sith/Focus).
+*   **Green Hill:** Escala monocromática verde (Matrix/CRT).
+*   **CoolWarm / WarmCool:** Lógica psicológica de "Ação vs Estrutura" com base Rainbow.
 
-A paleta segue uma lógica de cores quentes/frias para separar *Ação* de *Estrutura*.
+### Core Features
+*   **Semantic Safety Shield:** Alertas de Erro (Vermelho), Sucesso (Verde) e Info (Azul) são **imutáveis** e blindados em todos os temas, garantindo segurança cognitiva para operações de SRE.
+*   **Polimorfismo:** O Chameleon gera configs para:
+    *   **Hyprland & Waybar:** (Com ciclo de 10 workspaces vibrantes).
+    *   **Shell (Zsh):** Prompt, Syntax Highlighting, LS_COLORS.
+    *   **Apps:** Foot, Neovim, Wofi.
+    *   **GUI:** GTK 3/4 (CSS Injection) e **Chromium** (Manifests nativos).
+
+> Consulte a [Teoria das Cores SANXZ](common/docs/SAN_COLORS.md) para detalhes técnicos.
 
 ## 🛠️ Automação SRE
 *   **Centralização:** Variáveis de ambiente e Autostart movidos para arquivos globais (`environment.conf`, `base.conf`) para evitar duplicação e conflitos de dependência.

@@ -43,3 +43,20 @@ python3 main.py apply sanxz4 --dry-run
 ## Directory Structure
 
 The tool expects your themes to be located in `../../common/resources/colors/` relative to its execution path (or configured via args).
+
+## Development
+
+### Architecture
+*   **Providers:** Located in `providers/`. Each class inherits from `ThemeProvider` and implements `generate_content`.
+*   **Utils:** Core logic (Parser, Color Conversion) extracted to `utils/`.
+
+### Testing
+Chameleon includes a `unittest` suite to ensure stability.
+
+```bash
+# Run all tests
+python3 -m unittest discover tests
+```
+
+*   **Coverage:** YAML Parser (quotes/comments logic), Color Utils (Hex->RGB), and Provider Logic.
+

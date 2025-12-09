@@ -11,18 +11,20 @@
 /* Mapping Chameleon Variables to Local Logic */
 @define-color c0 @c00_black;
 @define-color c_white @c07_white;
-/* ANSI Mapping for Dynamic Theming */
-@define-color c1 @c05_violet;   /* W1 */
-@define-color c2 @c04_blue;     /* W2 */
-@define-color c3 @c06_cyan;     /* W3 */
-@define-color c4 @c02_green;    /* W4 */
-@define-color c5 @c03_yellow;   /* W5 */
-@define-color c6 @c01_red;      /* W6 */
-@define-color c7 @c07_white;    /* W7 */
-@define-color c_red @c01_red;   /* Semantic Error */
+/* ANSI Mapping for Dynamic Theming - DIRECT PALETTE SEQUENCE */
+/* Logic: The palette itself is now interleaved (P-W-C-W), so we map sequentially. */
+@define-color c1 @c01_red;        /* P1: Magenta */
+@define-color c2 @c02_green;      /* W1: Sunny */
+@define-color c3 @c03_yellow;     /* C1: Lime */
+@define-color c4 @c04_blue;       /* W2: Gold */
+@define-color c5 @c05_violet;     /* P2: Violet */
+@define-color c6 @c06_cyan;       /* W3: Orange */
+@define-color c7 @c09_br_red;     /* C2: Cyan */
+@define-color c8 @c10_br_green;   /* W4: Coral */
+@define-color c9 @c11_br_yellow;  /* P3: Indigo */
+@define-color c10 @c12_br_blue;   /* W5: Ruby */
 
-@define-color ui_bg @background;
-@define-color ui_border @border;
+@define-color c_red @error;       /* Semantic Error (From Semantic Block) */
 
 @define-color ui_bg @background;
 @define-color ui_border @border;
@@ -44,12 +46,11 @@
 @define-color accent-rare @c4;        /* A cor mais chamativa: #55FF55 (Verde) */
 
 /* --- Feedback --- */
-@define-color accent-warning @c3; /* Amarelo */
-@define-color accent-critical @c_red; /* Vermelho */
+@define-color accent-warning @warning; /* Amarelo Semântico */
+@define-color accent-critical @error;  /* Vermelho Semântico */
 
 /* --- Ciclo Arco-Íris (para nth-child) --- */
-/* As cores c1 a c7 e c_red já estão definidas acima */
-@define-color c8 @c_red;
+/* As cores c1 a c10 e c_red já estão definidas acima */
 
 /* 2. Reset Global (O *jeito certo* de usar *) */
 
@@ -58,7 +59,7 @@
     border-radius: 0;
     padding: 0;
     margin: 0;
-    font-size: 14pt;
+    font-size: 10pt;
     font-family: "FiraCode Nerd Font Mono", monospace;
 }
 
@@ -82,7 +83,9 @@ window#waybar.workspace-4 { background: @c4; }
 window#waybar.workspace-5 { background: @c5; }
 window#waybar.workspace-6 { background: @c6; }
 window#waybar.workspace-7 { background: @c7; }
-window#waybar.workspace-8 { background: @c_red; }
+window#waybar.workspace-8 { background: @c8; }
+window#waybar.workspace-9 { background: @c9; }
+window#waybar.workspace-10 { background: @c10; }
 
 /* 4. Estilo "Pílula" Padrão para TODOS os Módulos */
 /* Isso cria a aparência moderna e espaçada */
@@ -149,6 +152,8 @@ window#waybar.workspace-8 { background: @c_red; }
 #workspaces button:nth-child(6) { color: @c6; }
 #workspaces button:nth-child(7) { color: @c7; }
 #workspaces button:nth-child(8) { color: @c8; }
+#workspaces button:nth-child(9) { color: @c9; }
+#workspaces button:nth-child(10) { color: @c10; }
 
 /* Destaca o workspace focado (ativo) */
 #workspaces button.focused {

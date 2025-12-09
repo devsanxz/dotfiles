@@ -6,34 +6,34 @@ meta:
   type: "dark"
 
 palette:
-  # Base 16 (Green Scale - Adjusted for Hierarchy)
-  c00_black: "#000500"      # Fundo CRT (Quase preto)
-  c01_red: "#FF0000"        # Erro (Semântica Preservada)
-  c02_green: "#00FF00"      # Verde Neon (Base)
-  c03_yellow: "#FFFF00"     # Aviso (Semântica Preservada)
-  c04_blue: "#004400"       # Azul -> Verde Escuro (Estrutural)
-  c05_violet: "#006600"     # Violeta -> Verde Médio
-  c06_cyan: "#008800"       # Ciano -> Verde Água Escuro
-  c07_white: "#AAFFAA"      # Branco -> Fósforo Pálido (Texto Secundário)
+  # Base 16 (Green Scale Gradient for Waybar)
+  c00_black: "#000500"      # Matrix Black
+  c01_red: "#004400"        # Dark Green (W1)
+  c02_green: "#006600"      # Deep Green (W2)
+  c03_yellow: "#008800"     # Forest Green (W3)
+  c04_blue: "#00AA00"       # High Green (W4)
+  c05_violet: "#00DD00"     # Neon Green (W5)
+  c06_cyan: "#00FF44"       # Spring Green (W6)
+  c07_white: "#AAFFAA"      # Pale Green
 
-  # Brilhantes (High Intensity)
-  c08_br_black: "#002200"   # Borda / Seleção inativa
-  c09_br_red: "#FF5555"     # Erro Brilhante
-  c10_br_green: "#55FF55"   # Sucesso / Destaque Máximo
-  c11_br_yellow: "#FFFF55"  # Aviso Brilhante
-  c12_br_blue: "#00FF88"    # Digital Green (Links/Pastas)
-  c13_br_violet: "#00EE00"  # Keyword Green
-  c14_br_cyan: "#AAFFAA"    # Variável Green
-  c15_br_white: "#FFFFFF"   # Branco Puro (Exceção para contraste extremo)
+  # Brilhantes
+  c08_br_black: "#002200"   # Green Border
+  c09_br_red: "#003300"     # Darker Green (W7)
+  c10_br_green: "#22FF22"   # (W8)
+  c11_br_yellow: "#55FF55"  # Light Green (W9)
+  c12_br_blue: "#88FF88"    # Mint (W10)
+  c13_br_violet: "#00FF00"  # Pure Green Highlight
+  c14_br_cyan: "#CCFFCC"    # Whitish Green
+  c15_br_white: "#FFFFFF"   # Pure White
 
 semantic:
-  error: "#FF0000"
-  warning: "#FFFF55"
-  success: "#00FF00"        # Alinhado com SRE Standard
-  info: "#00FF88"
+  error: "#FF0000"         # Vermelho Puro (CRÍTICO)
+  warning: "#FFFF00"       # Amarelo Puro (AVISO)
+  success: "#00FF00"       # Verde Puro (SUCESSO)
+  info: "#44AAFF"          # Azul Dodger (INFO)
 
 ui:
-  background: "#000500"     # CRT Black
-  foreground: "#00FF00"     # Texto Principal (Neon) - Igual ao SANXZ4 (Violeta)
-  border: "#003300"         # Borda Discreta
-  selection: "#002200"      # Seleção
+  background: "#000500"
+  foreground: "#00FF00"
+  border: "#003300"
+  selection: "#002200"

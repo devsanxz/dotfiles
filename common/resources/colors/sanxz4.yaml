@@ -2,36 +2,38 @@
 meta:
   name: "SANXZ4"
   author: "Felipe Sanchez"
-  description: "The Flagship Theme. Swap White/Violet signature."
+  description: "The Flagship Theme. P-W-C-W Interleaved Logic."
   type: "dark"
 
 palette:
-  # Base 16 ANSI
-  c00_black: "#000000"
-  c01_red: "#FF5555"
-  c02_green: "#55FF55"
-  c03_yellow: "#FFFF55"
-  c04_blue: "#5555FF"
-  c05_violet: "#DD55FF"
-  c06_cyan: "#55DDFF"
-  c07_white: "#FFFFFF"
-  c08_br_black: "#440044" # Usado como borda
-  c09_br_red: "#FF5555"
-  c10_br_green: "#55FF55"
-  c11_br_yellow: "#FFFF55"
-  c12_br_blue: "#5555FF"
-  c13_br_violet: "#DD55FF"
-  c14_br_cyan: "#55DDFF"
-  c15_br_white: "#FFFFFF"
+  # Base 16 (Interleaved P-W-C-W Logic)
+  c00_black: "#050010"      # Preto Manchado
+  c01_red: "#FF00FF"        # P1: Magenta
+  c02_green: "#FFFF55"      # W1: Sunny Yellow
+  c03_yellow: "#AAFF00"     # C1: Lime Green
+  c04_blue: "#FFCC00"       # W2: Gold
+  c05_violet: "#DD55FF"     # P2: Violeta Neon
+  c06_cyan: "#FF8800"       # W3: Laranja
+  c07_white: "#DDBBFF"      # Lavanda
+
+  # Brilhantes
+  c08_br_black: "#330055"   # Borda Roxo Escuro
+  c09_br_red: "#00FFFF"     # C2: Ciano Elétrico
+  c10_br_green: "#FF5555"   # W4: Coral
+  c11_br_yellow: "#6600FF"  # P3: Indigo
+  c12_br_blue: "#DD2222"    # W5: Rubi
+  c13_br_violet: "#00AAAA"  # C3: Teal
+  c14_br_cyan: "#2222FF"    # C4: Azul Vibrante
+  c15_br_white: "#F0E0FF"   # Branco Brilhante
 
 semantic:
-  error: "#FF0000"
-  warning: "#FFFF55"
-  success: "#55FF55"
-  info: "#55DDFF"
+  error: "#FF0000"         # Vermelho Puro
+  warning: "#FFFF00"       # Amarelo Puro
+  success: "#00FF00"       # Verde Puro
+  info: "#44AAFF"          # Azul Dodger
 
 ui:
-  background: "#110011" # Roxo muito escuro
-  foreground: "#DD55FF" # Violeta Neon
-  border: "#440044"
-  selection: "#220022"
+  background: "#050010"
+  foreground: "#DD55FF"
+  border: "#330055"
+  selection: "#220044"
