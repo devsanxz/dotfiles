@@ -26,13 +26,13 @@ palette:
   c15_br_white: "#FFFFFF"
 
 semantic:
-  error: "#AA55FF" # Violeta (Frio) ou Vermelho mantido? Mantendo vermelho por segurança no YAML base.
-  warning: "#AA55FF"
-  success: "#55FFFF"
-  info: "#5555FF"
+  error: "#FF0000"         # Vermelho Real para Erro (Segurança SRE)
+  warning: "#FFFF00"       # Amarelo Real
+  success: "#55FF55"       # Verde
+  info: "#55FFFF"          # Ciano
 
 ui:
-  background: "#000000"
-  foreground: "#FFFFFF"
-  border: "#331111"
-  selection: "#221111"
+  background: "#080000"    # Warm Black (Estrutura Quente)
+  foreground: "#00FFFF"    # Cool Cyan (Ação Fria - Texto Neon)
+  border: "#441111"        # Warm Reddish Border
+  selection: "#004444"     # Cool Cyan Selection

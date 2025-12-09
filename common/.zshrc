@@ -33,7 +33,7 @@ source ~/resources/custom/variables.zsh
 source ~/resources/custom/aliases.zsh
 source ~/resources/config/history.zsh
 source ~/resources/custom/colors.zsh
-source ~/resources/custom/ls-colors.zsh
+# source ~/resources/custom/ls-colors.zsh (Deprecated: Handled by Chameleon in colors.zsh)
 source ~/resources/custom/PS1.zsh
 source ~/resources/custom/keys.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

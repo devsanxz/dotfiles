@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "SANXZ Cool/Warm Theme",
+  "description": "Cool Action, Warm Structure. Cyan on Warm Black.",
+  "theme": {
+    "colors": {
+      "frame": [8, 0, 0],
+      "frame_inactive": [8, 0, 0],
+      "frame_incognito": [8, 0, 0],
+      "frame_incognito_inactive": [8, 0, 0],
+      "background_tab": [8, 0, 0],
+      "background_tab_inactive": [68, 17, 17],
+      "background_tab_incognito": [8, 0, 0],
+      "background_tab_incognito_inactive": [68, 17, 17],
+      "bookmark_text": [0, 255, 255],
+      "tab_background_text": [85, 255, 255],
+      "tab_text": [0, 255, 255],
+      "toolbar": [8, 0, 0],
+      "ntp_background": [8, 0, 0],
+      "ntp_text": [0, 255, 255],
+      "omnibox_background": [0, 0, 0],
+      "omnibox_text": [0, 255, 255]
+    }
+  }
+}

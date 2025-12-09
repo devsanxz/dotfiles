@@ -53,7 +53,18 @@ def parse_yaml(file_path):
                             value = raw_value[1:end_quote]
                     else:
                         # No quotes? Just strip comments
-                        value = raw_value.split('#')[0].strip()
+                        # We split by " #" to avoid breaking hex colors like #FF0000
+                        # This assumes comments are preceded by a space, which is standard.
+                        if ' #' in raw_value:
+                            value = raw_value.split(' #')[0].strip()
+                        else:
+                            # Verify if there is a '#' inside that is NOT at the start (e.g. value#comment)
+                            # Though strict YAML requires space, we can be lenient or strict.
+                            # Let's be safe: if it starts with #, take the first word.
+                            if raw_value.startswith('#') and ' ' in raw_value:
+                                 value = raw_value.split(' ')[0].strip()
+                            else:
+                                 value = raw_value.strip()
                     
                     data[current_section][key] = value
                     

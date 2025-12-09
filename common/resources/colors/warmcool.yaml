@@ -26,13 +26,13 @@ palette:
   c15_br_white: "#FFFFFF"
 
 semantic:
-  error: "#FF5555"
-  warning: "#FFFF77"
-  success: "#55FF55"
-  info: "#55FFFF"
+  error: "#FF0000"         # Vermelho Real (Segurança)
+  warning: "#FFFF00"       # Amarelo Real
+  success: "#55FF55"       # Verde
+  info: "#55FFFF"          # Ciano
 
 ui:
-  background: "#000000"
-  foreground: "#FFFFFF" # Texto principal branco (neutro)
-  border: "#222222"
-  selection: "#333333"
+  background: "#000008"    # Cool Black (Estrutura Fria)
+  foreground: "#FF5555"    # Warm Red (Ação Quente - Texto Neon)
+  border: "#000044"        # Cool Blue Border
+  selection: "#440000"     # Warm Red Selection
