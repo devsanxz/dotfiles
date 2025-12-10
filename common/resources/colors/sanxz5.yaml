@@ -1,0 +1,44 @@
+# SANXZ5 Theme Definition
+meta:
+  name: "SANXZ5"
+  author: "Felipe Sanchez"
+  description: "Evolution of Flagship. P-W-P-C Interleaved Rhythm (Purple Dominance)."
+  type: "dark"
+
+palette:
+  # Base 16 (Interleaved P-W-P-C Logic)
+  # Sequence: P -> W -> P -> C -> P -> W -> P -> C
+  
+  c00_black: "#050010"      # Preto Profundo (Base Roxa)
+  
+  # Workspace Colors (Primary Cycle)
+  c01_red: "#FF00FF"        # 1 [P]: Magenta Puro
+  c02_green: "#FFFF55"      # 2 [W]: Sunny Yellow
+  c03_yellow: "#9900FF"     # 3 [P]: Roxo Elétrico (Electric Purple)
+  c04_blue: "#00FFFF"       # 4 [C]: Ciano Puro
+  c05_violet: "#DD55FF"     # 5 [P]: Violeta Neon
+  c06_cyan: "#FF8800"       # 6 [W]: Laranja Solar
+  
+  c07_white: "#E0C0FF"      # Lavanda Clara (Texto Base)
+
+  # Brilhantes & Extensão
+  c08_br_black: "#330055"   # Borda/Fundo UI
+  c09_br_red: "#B000FF"     # 7 [P]: Indigo Profundo
+  c10_br_green: "#AAFF00"   # 8 [C]: Verde Lima (Lime)
+  c11_br_yellow: "#FF00AA"  # [P]: Rosa Choque
+  c12_br_blue: "#FFCC00"    # [W]: Ouro
+  c13_br_violet: "#6600FF"  # [P]: Azul Real/Roxo
+  c14_br_cyan: "#00AAAA"    # [C]: Teal
+  c15_br_white: "#FFFFFF"   # Branco Puro
+
+semantic:
+  error: "#FF0000"         # Vermelho SRE (Safety)
+  warning: "#FFFF00"       # Amarelo SRE
+  success: "#00FF00"       # Verde SRE
+  info: "#44AAFF"          # Azul Info
+
+ui:
+  background: "#050010"
+  foreground: "#E0C0FF"    # Lavanda para leitura confortável
+  border: "#9900FF"        # Borda Ativa (Roxo Elétrico)
+  selection: "#440088"
