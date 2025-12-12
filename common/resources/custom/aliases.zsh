@@ -27,3 +27,27 @@ timer() {
     echo "Timer set for $duration minutes."
     (sleep "${duration}m" && notify-send -u critical "⏳ Timer Finished" "$message" && paplay /usr/share/sounds/freedesktop/stereo/complete.oga 2>/dev/null) &
 }
+
+# Focus Mode (Brown Noise + DND)
+focus() {
+  if [[ "$1" == "on" ]]; then
+    echo "🧠 Focus Mode: ENGAGED (Brown Noise + DND)"
+    # Play brown noise in background, save PID. Use nohup/disown to prevent TTY suspension.
+    nohup play -q -n synth brownnoise vol 0.3 >/dev/null 2>&1 &
+    echo $! > /tmp/lilith_focus_pid
+    disown
+    # Pause notifications
+    dunstctl set-paused true 2>/dev/null
+  elif [[ "$1" == "off" ]]; then
+    echo "🧠 Focus Mode: DISENGAGED"
+    # Kill noise
+    if [[ -f /tmp/lilith_focus_pid ]]; then
+      kill $(cat /tmp/lilith_focus_pid) 2>/dev/null
+      rm /tmp/lilith_focus_pid
+    fi
+    # Resume notifications
+    dunstctl set-paused false 2>/dev/null
+  else
+    echo "Usage: focus [on|off]"
+  fi
+}
