@@ -8,17 +8,17 @@ meta:
 palette:
   # Base 16 (Green Scale Gradient for Waybar)
   c00_black: "#000500"      # Matrix Black
-  c01_red: "#004400"        # Dark Green (W1)
-  c02_green: "#006600"      # Deep Green (W2)
-  c03_yellow: "#008800"     # Forest Green (W3)
-  c04_blue: "#00AA00"       # High Green (W4)
-  c05_violet: "#00DD00"     # Neon Green (W5)
-  c06_cyan: "#00FF44"       # Spring Green (W6)
-  c07_white: "#AAFFAA"      # Pale Green
+  c01_red: "#00B000"        # Dark Green (W1) - Base
+  c02_green: "#00D800"      # Deep Green (W2) - Math Corrected
+  c03_yellow: "#00FF00"     # Forest Green (W3) - Peak Saturation
+  c04_blue: "#33FF33"       # High Green (W4) - Tint 1
+  c05_violet: "#66FF66"     # Neon Green (W5) - Tint 2
+  c06_cyan: "#99FF99"       # Spring Green (W6) - Tint 3
+  c07_white: "#CCFFCC"      # Pale Green
 
   # Brilhantes
   c08_br_black: "#002200"   # Green Border
-  c09_br_red: "#003300"     # Darker Green (W7)
+  c09_br_red: "#66CC66"     # Visible Green (W7) - Light Pastel
   c10_br_green: "#22FF22"   # (W8)
   c11_br_yellow: "#55FF55"  # Light Green (W9)
   c12_br_blue: "#88FF88"    # Mint (W10)
