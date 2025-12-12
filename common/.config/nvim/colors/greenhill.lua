@@ -1,6 +1,6 @@
 -- ~/.config/nvim/colors/greenhill.lua
--- TEMA: GREENHILL (Monocromático Verde Puro - V2 Equidistante)
--- Filosofia: 3 Semânticas Reservadas + 16 Tons de Verde
+-- TEMA: GREENHILL (Remastered v2.5.1 - High Visibility)
+-- Palette: Aligned with Green Hill YAML v2.5.1
 
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
@@ -14,32 +14,31 @@ vim.opt.termguicolors = true
 -- 1. A PALETA
 -- ==========================================================
 local c = {
-        -- 1. Semântica Reservada (Exceções)
-        sem_success = "#FFFFFF", -- Branco Puro (Substitui o Verde semântico)
+        -- 1. Semântica Reservada
+        sem_success = "#FFFFFF", -- Branco Puro (Strings)
         sem_warn    = "#FFFF00", -- Amarelo Puro
         sem_error   = "#FF0000", -- Vermelho Puro
         
         -- Neutro Base
-        black = "#000000",
+        black = "#000500", -- Matrix Black
 
-        -- 2. Os 16 Tons de Verde (Green Hill Scale)
-        -- Do mais escuro (#001100) ao mais brilhante (#AAFFHH)
-        g01 = "#001100", -- UI Background
+        -- 2. Escala High Vis (Baseada no YAML v2.5.1)
+        g01 = "#001100", -- UI Background (Levemente acima do preto)
         g02 = "#002200", -- CursorLine
-        g03 = "#003300", -- Selection
-        g04 = "#004400", -- Borders
-        g05 = "#005500", -- Comments Dim
-        g06 = "#006600", -- Comments Bright
-        g07 = "#007700", -- UI Elements
-        g08 = "#008800", -- Dark Text
-        g09 = "#009900", -- Operators
-        g10 = "#00AA00", -- Normal Text Base
-        g11 = "#00BB00", -- PreProc
-        g12 = "#00CC00", -- Identifiers
-        g13 = "#00DD00", -- Types
-        g14 = "#00EE00", -- Keywords
-        g15 = "#00FF00", -- Functions / Neon Pure
-        g16 = "#CCFFCC", -- Constants / Pale Green (Quase branco)
+        g03 = "#004400", -- Selection
+        g04 = "#005500", -- Borders
+        g05 = "#007700", -- Comments (W1 antigo era 99, mas comments podem ser mais dark)
+        g06 = "#009900", -- Comments Bright
+        g07 = "#00B000", -- UI Elements (W1 Novo)
+        g08 = "#00C000", -- Dark Text
+        g09 = "#00D800", -- Operators (W2 Novo)
+        g10 = "#00EE00", -- Normal Text Base (Quase Neon)
+        g11 = "#00FF00", -- PreProc (W3 Novo - Neon Puro)
+        g12 = "#33FF33", -- Identifiers (W4 Novo)
+        g13 = "#66FF66", -- Types (W5 Novo)
+        g14 = "#99FF99", -- Keywords (W6 Novo)
+        g15 = "#CCFFCC", -- Functions / Highlights (W7 Novo)
+        g16 = "#FFFFFF", -- Constants (Branco)
 
         none = "NONE",
 }
@@ -60,17 +59,17 @@ end
 -- ==========================================================
 
 -- --- Editor Base ---
-hl("Normal", c.g10, c.black)      -- Texto base num verde médio agradável
+hl("Normal", c.g10, c.black)      -- Texto base bem claro (#00EE00)
 hl("NormalFloat", c.g10, c.g01)
 hl("SignColumn", nil, c.black)
 
 hl("LineNr", c.g04, nil)
 hl("CursorLine", nil, c.g02)
-hl("CursorLineNr", c.g15, nil, "bold") -- Linha atual brilha neon
+hl("CursorLineNr", c.g11, nil, "bold") -- Linha atual Neon Puro (#00FF00)
 hl("EndOfBuffer", c.g03, nil)
 
 -- --- Sintaxe (Somente Verdes) ---
-hl("Comment", c.g05, nil, "italic")
+hl("Comment", c.g05, nil, "italic") -- #007700 (Legível)
 
 hl("Operator", c.g09)
 hl("Identifier", c.g12)
@@ -89,10 +88,10 @@ hl("Conditional", c.g14)
 hl("Repeat", c.g14)
 hl("Label", c.g14)
 
-hl("Function", c.g15, nil, "bold") -- Neon puro
+hl("Function", c.g15, nil, "bold") -- Pálido Brilhante
 hl("Special", c.g15)
 
-hl("Number", c.g16) -- Verde pálido (destaque de valor)
+hl("Number", c.g16) -- Branco
 hl("Boolean", c.g16)
 hl("Float", c.g16)
 hl("Constant", c.g16)
@@ -102,9 +101,9 @@ hl("String", c.sem_success)
 hl("Character", c.sem_success)
 
 -- --- Interface ---
-hl("Search", c.black, c.g15) -- Texto preto em fundo Neon
+hl("Search", c.black, c.g11) -- Texto preto em fundo Neon
 hl("Visual", nil, c.g03)
-hl("MatchParen", c.sem_success, c.g04, "bold") -- Branco no parenteses
+hl("MatchParen", c.sem_success, c.g04, "bold")
 
 -- --- Exceção Semântica 2 & 3: Aviso/Erro ---
 hl("Error", c.sem_error, nil, "bold")
@@ -113,9 +112,9 @@ hl("WarningMsg", c.sem_warn, nil, "bold")
 
 hl("DiagnosticError", c.sem_error)
 hl("DiagnosticWarn", c.sem_warn)
-hl("DiagnosticInfo", c.g13) -- Info continua verde (Type level)
-hl("DiagnosticHint", c.g06) -- Hint continua verde (Comment level)
-hl("DiagnosticOk", c.sem_success) -- Branco
+hl("DiagnosticInfo", c.g13)
+hl("DiagnosticHint", c.g06)
+hl("DiagnosticOk", c.sem_success)
 
 -- --- Menus ---
 hl("Pmenu", c.g12, c.g01)
