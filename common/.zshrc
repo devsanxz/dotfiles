@@ -41,6 +41,12 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/resources/custom/theme-highlight.zsh
 # source = /home/san/.config/hypr/theme.conf
+
+# Lilith Private Protocols (Ghost in the Shell)
+if [ -f "$HOME/.lilith_secrets.zsh" ]; then
+    source "$HOME/.lilith_secrets.zsh"
+fi
+
 # Daily Briefing (SRE Dashboard)
 if [ -f "$HOME/dotfiles/common/resources/scripts/daily_briefing.sh" ]; then
     source "$HOME/dotfiles/common/resources/scripts/daily_briefing.sh"
