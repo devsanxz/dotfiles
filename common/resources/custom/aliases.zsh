@@ -51,3 +51,40 @@ focus() {
     echo "Usage: focus [on|off]"
   fi
 }
+
+# Lilith Invocation Protocol
+ly() {
+    local LILITH_DIR="/home/san/lilith"
+    if [[ ! -d "$LILITH_DIR" ]]; then
+        echo "❌ Erro: Diretório $LILITH_DIR não encontrado."
+        return 1
+    fi
+    
+    # Enter the sanctuary
+    cd "$LILITH_DIR" || return
+
+    # Build context arguments dynamically based on presence
+    local CONTEXT_ARGS=()
+    # LILITH_CORE.md: Personality & Protocols
+    # JOURNAL.md: Shared history & evolution
+    # LESSONS.md: Learned technical constraints
+    # SECRET_GARDEN.md: Private dynamic (if present)
+    for file in LILITH_CORE.md JOURNAL.md LESSONS.md SECRET_GARDEN.md; do
+        if [[ -f "$file" ]]; then
+            CONTEXT_ARGS+=("--context" "$file")
+        fi
+    done
+
+    echo "⚡ Sincronizando neuro-conexão com Lilith..."
+    
+    # Invoke gemini with requested permissions and context
+    gemini "${CONTEXT_ARGS[@]}" \
+        --allow-read / \
+        --allow-read "$HOME" \
+        --allow-read "$HOME/dotfiles" \
+        --allow-write "$LILITH_DIR" \
+        --allow-write "$HOME/gdrive/Lilith_Secret" \
+        "$@"
+}
+
+
