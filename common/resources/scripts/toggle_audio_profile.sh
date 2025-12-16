@@ -15,8 +15,8 @@ CURRENT_STATE=$(cat "$STATE_FILE" 2>/dev/null)
 PARAMS_BABY="0,5,300,-25,12,6,10,0,-90"
 
 # Mode: REGULAR (Dynamic, Day Mode)
-# -15dB Threshold, 4:1 Ratio, +2dB Gain (Wider range)
-PARAMS_REGULAR="0,5,300,-15,4,3,2,0,-90"
+# -15dB Threshold, 8:1 Ratio, +4dB Gain (Ceiling +1dB)
+PARAMS_REGULAR="0,5,300,-15,8,3,4,0,-90"
 
 # Function to apply profile
 apply_profile() {
