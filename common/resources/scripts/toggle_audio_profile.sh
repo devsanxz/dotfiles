@@ -11,12 +11,13 @@ CURRENT_STATE=$(cat "$STATE_FILE" 2>/dev/null)
 # Control: rms_peak, attack, release, threshold, ratio, knee, makeup, amplitude, gate
 
 # Mode: BABY SLEEP (Flat, Night Mode)
-# -25dB Threshold, 12:1 Ratio, +10dB Gain
-PARAMS_BABY="0,5,300,-25,12,6,10,0,-90"
+# Target: Input [-30, 0] -> Output [-15, +1]
+# -15dB Threshold, 20:1 Ratio (Brickwall), +15dB Gain
+PARAMS_BABY="0,5,300,-15,20,3,15,0,-90"
 
 # Mode: REGULAR (Dynamic, Day Mode)
-# -15dB Threshold, 8:1 Ratio, +4dB Gain (Ceiling +1dB)
-PARAMS_REGULAR="0,5,300,-15,8,3,4,0,-90"
+# -20dB Threshold, 4:1 Ratio, +2dB Gain (Standard Dynamic)
+PARAMS_REGULAR="0,5,300,-20,4,3,2,0,-90"
 
 # Function to apply profile
 apply_profile() {
