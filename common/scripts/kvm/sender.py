@@ -51,8 +51,7 @@ def toggle_state():
             pass
 
 # === MAIN LOOP ===
-sys.stderr.write(f"--- NEURAL LINK SENDER ---
-")
+sys.stderr.write(f"--- NEURAL LINK SENDER ---\n")
 sys.stderr.write(f"KBD: {kbd.name}\nMOUSE: {mouse.name}\n")
 sys.stderr.write("Press 'SCROLL LOCK' to toggle control.\n")
 
