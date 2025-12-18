@@ -6,7 +6,7 @@ from evdev import ecodes
 
 # === CONFIGURATION ===
 # Based on your 'identifydevices.txt'
-KBD_PATH = "/dev/input/event15"   # USB Keyboard (CASUE)
+KBD_PATH = "/dev/input/event5"    # USB Keyboard (Alternative ID)
 MOUSE_PATH = "/dev/input/event16" # USB Optical Mouse
 
 # === SETUP ===
