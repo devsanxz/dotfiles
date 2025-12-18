@@ -6,7 +6,7 @@ from evdev import ecodes
 
 # === CONFIGURATION ===
 # Based on your 'identifydevices.txt'
-KBD_PATH = "/dev/input/event4"   # Note Built-in Keyboard
+KBD_PATH = "/dev/input/event15"   # USB Keyboard (CASUE)
 MOUSE_PATH = "/dev/input/event16" # USB Optical Mouse
 
 # === SETUP ===
@@ -53,7 +53,7 @@ def toggle_state():
 # === MAIN LOOP ===
 sys.stderr.write(f"--- NEURAL LINK SENDER ---\n")
 sys.stderr.write(f"KBD: {kbd.name}\nMOUSE: {mouse.name}\n")
-sys.stderr.write("Press 'SCROLL LOCK' to toggle control.\n")
+sys.stderr.write("Press 'PAUSE' to toggle control.\n")
 
 # Ensure clean state start
 set_led(False)
@@ -69,10 +69,14 @@ try:
             dev = devices[fd]
             for event in dev.read():
                 
-                # Detect Scroll Lock Toggle (Only on Keyboard)
-                if dev == kbd and event.type == ecodes.EV_KEY and event.code == ecodes.KEY_SCROLLLOCK and event.value == 1:
-                    toggle_state()
-                    continue # Do not send the toggle key itself
+                # Detect PAUSE Toggle (Only on Keyboard)
+                if dev == kbd and event.type == ecodes.EV_KEY:
+                    # Debug: Print key code to stderr to verify detection
+                    # sys.stderr.write(f"Key: {event.code} Val: {event.value}\r")
+                    
+                    if event.code == ecodes.KEY_PAUSE and event.value == 1:
+                        toggle_state()
+                        continue # Do not send the toggle key itself
 
                 # If Active, transmit everything
                 if active:
