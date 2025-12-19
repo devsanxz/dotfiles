@@ -5,9 +5,9 @@ import select
 from evdev import ecodes
 
 # === CONFIGURATION ===
-# Based on your 'identifydevices.txt'
-KBD_PATH = "/dev/input/event6"    # USB Keyboard (CASUE)
-MOUSE_PATH = "/dev/input/event5"  # USB Optical Mouse
+# Using stable 'by-id' paths to survive reboots and port changes
+KBD_PATH = "/dev/input/by-id/usb-2a7a_CASUE_USB_KB-event-kbd"
+MOUSE_PATH = "/dev/input/by-id/usb-YSPRINGTECH_USB_OPTICAL_MOUSE-event-mouse"
 
 # === SETUP ===
 try:
