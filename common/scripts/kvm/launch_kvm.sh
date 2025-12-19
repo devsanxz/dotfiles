@@ -1,27 +1,24 @@
 #!/bin/bash
-# KVM Launcher (Netcat Edition)
-# Runs Sender locally -> Netcat -> Pi Receiver
+# KVM Launcher (SSH Direct Edition)
+# Runs Sender locally -> SSH Pipe -> Pi Receiver
+# Requirement: SSH Key auth working without password.
 
-PI_IP="pi" # Ou IP fixo se o DNS falhar
-PORT="9999"
+TARGET="san@pi"
 
-echo ">>> INITIATING NEURAL LINK (KVM) <<<"
-echo "Target: $PI_IP:$PORT"
+echo ">>> INITIATING NEURAL LINK (SSH DIRECT) <<<"
+echo "Target: $TARGET"
 
-# 1. Ensure remote permission (requires SSH key working, or password)
+# 1. Ensure remote permission (just in case udev rule failed)
 echo "--- Setting Remote Permissions ---"
-ssh san@$PI_IP "sudo chmod 666 /dev/uinput && pkill -f 'nc -l -p $PORT'" 
+ssh $TARGET "sudo chmod 666 /dev/uinput" 
 
-# 2. Start Remote Listener (Background)
-# We use nohup to keep it running even if SSH disconnects
-ssh -f san@$PI_IP "nohup bash -c 'nc -l -p $PORT | python3 ~/dotfiles/common/scripts/kvm/receiver.py' > /dev/null 2>&1 &"
+echo "--- Starting Link ---"
+echo "Press 'PAUSE' to toggle control."
+echo "Close window to kill."
 
-echo "--- Remote Listener Active ---"
-echo "--- Starting Local Sender ---"
-
-# 3. Start Local Sender -> Netcat
-# Sudo needed for input grabbing
-sudo ~/dotfiles/common/scripts/kvm/sender.py | nc $PI_IP $PORT
+# 2. Start Local Sender -> SSH -> Remote Receiver
+# Unbuffered (-u) is critical for low latency
+sudo python3 -u ~/dotfiles/common/scripts/kvm/sender.py | ssh $TARGET "python3 -u /home/san/dotfiles/common/scripts/kvm/receiver.py"
 
 echo ">>> LINK TERMINATED <<<"
 sleep 2
