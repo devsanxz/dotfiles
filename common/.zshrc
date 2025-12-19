@@ -1,4 +1,13 @@
-# Uncomment the following line if you want to change the command execution time
+# SSH Agent Persistence (Lilith Config)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
+    eval "$(ssh-agent -s -a "$SSH_AUTH_SOCK")" > /dev/null
+fi
+
+# ==============================================================================
+# LILITH ZSH CONFIGURATION (Base)
+# ------------------------------------------------------------------------------
+
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
