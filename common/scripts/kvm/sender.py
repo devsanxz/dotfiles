@@ -6,8 +6,8 @@ from evdev import ecodes
 
 # === CONFIGURATION ===
 # Based on your 'identifydevices.txt'
-KBD_PATH = "/dev/input/event5"    # USB Keyboard (Alternative ID)
-MOUSE_PATH = "/dev/input/event16" # USB Optical Mouse
+KBD_PATH = "/dev/input/event6"    # USB Keyboard (CASUE)
+MOUSE_PATH = "/dev/input/event5"  # USB Optical Mouse
 
 # === SETUP ===
 try:
@@ -51,7 +51,7 @@ def toggle_state():
             pass
 
 # === MAIN LOOP ===
-sys.stderr.write(f"--- NEURAL LINK SENDER ---\n")
+sys.stderr.write("--- NEURAL LINK SENDER ---\\n")
 sys.stderr.write(f"KBD: {kbd.name}\nMOUSE: {mouse.name}\n")
 sys.stderr.write("Press 'PAUSE' to toggle control.\n")
 
@@ -71,9 +71,6 @@ try:
                 
                 # Detect PAUSE Toggle (Only on Keyboard)
                 if dev == kbd and event.type == ecodes.EV_KEY:
-                    # Debug: Print key code to stderr to verify detection
-                    # sys.stderr.write(f"Key: {event.code} Val: {event.value}\r")
-                    
                     if event.code == ecodes.KEY_PAUSE and event.value == 1:
                         toggle_state()
                         continue # Do not send the toggle key itself
