@@ -11,9 +11,9 @@ CURRENT_STATE=$(cat "$STATE_FILE" 2>/dev/null)
 # Control: rms_peak, attack, release, threshold, ratio, knee, makeup, amplitude, gate
 
 # Mode: BABY SLEEP (Flat, Night Mode)
-# Target: Input [-30, 0] -> Output [-15, +1]
-# -15dB Threshold, 20:1 Ratio (Brickwall), +15dB Gain
-PARAMS_BABY="0,5,300,-15,20,3,15,0,-90"
+# Target: Input [-30, 0] -> Output [-2, +1] (Safe Range close to +/-3)
+# -20dB Threshold, 10:1 Ratio, +18dB Gain
+PARAMS_BABY="0,5,300,-20,10,3,18,0,-90"
 
 # Mode: REGULAR (Dynamic, Day Mode)
 # -20dB Threshold, 4:1 Ratio, +2dB Gain (Standard Dynamic)
