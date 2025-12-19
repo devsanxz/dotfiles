@@ -46,6 +46,8 @@ O ecossistema utiliza a engine **Chameleon** para gerenciar 5 temas remasterizad
 
 ## 🛠️ Automação SRE
 *   **Centralização:** Variáveis de ambiente e Autostart movidos para arquivos globais (`environment.conf`, `base.conf`) para evitar duplicação e conflitos de dependência.
+*   **Neural Link (KVM):** Controle remoto de periféricos (Teclado/Mouse) via túnel SSH/Netcat, bypassando o Wayland.
+*   **Smart Audio:** Perfis de compressão dinâmica (Baby Mode vs Regular) gerenciados via script e atalhos.
 *   **Sync:** Fluxo de trabalho GitOps rigoroso (Edita no Arch -> Push -> Pull no Pi).
 *   **Documentação:** Guias técnicos (ex: `hyprctl dispatch`) versionados junto com a config.
 
