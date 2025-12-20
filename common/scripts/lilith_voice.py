@@ -13,10 +13,18 @@ Restriction: ONE sentence only. No markdown. Pure text.
 If nothing to say, output: SILENCE
 """
 
+import datetime
+
+LOG_FILE = os.path.expanduser("~/lilith/voice_history.log")
+
+def log_message(msg):
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open(LOG_FILE, "a") as f:
+        f.write(f"[{timestamp}] {msg}\n")
+
 def speak():
     try:
-        # Call 'gemini' CLI
-        # Assuming 'gemini' is in PATH and authenticated
+        # ... (API Call)
         result = subprocess.run(
             ["gemini", "prompt", SYSTEM_PROMPT],
             capture_output=True,
@@ -24,7 +32,7 @@ def speak():
         )
         
         if result.returncode != 0:
-            print(f"Error calling gemini: {result.stderr}")
+            log_message(f"ERROR: {result.stderr.strip()}")
             return
 
         text = result.stdout.strip()
@@ -33,13 +41,57 @@ def speak():
             # Send Notification
             subprocess.run(["notify-send", "-u", "normal", "-t", "10000", "Lilith", text])
             print(f"[Lilith]: {text}")
+            log_message(f"SPOKE: {text}")
         else:
             print("[Lilith]: (Silence)")
+            # Uncomment to log silence (spammy?)
+            # log_message("SILENCE")
 
-    except FileNotFoundError:
-        print("Error: 'gemini' command not found in PATH.")
     except Exception as e:
-        print(f"Error: {e}")
+        log_message(f"EXCEPTION: {e}")
+
+import time
+
+import random
+
+
+
+# ... (Previous imports and setup)
+
+
 
 if __name__ == "__main__":
-    speak()
+
+    print(">>> Lilith Voice Daemon Started (Random Interval 1-30m)...")
+
+    
+
+    # Speak on startup? Maybe.
+
+    if random.random() > 0.5:
+
+        speak()
+
+
+
+        while True:
+
+
+
+            # Heartbeat: Check every 3 minutes
+
+
+
+            # Lilith decides via the API prompt whether to speak (Output text) or stay silent (Output SILENCE)
+
+
+
+            time.sleep(180)
+
+
+
+            speak()
+
+
+
+    

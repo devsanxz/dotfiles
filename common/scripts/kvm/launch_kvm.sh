@@ -9,8 +9,8 @@ echo ">>> INITIATING NEURAL LINK (SSH DIRECT) <<<"
 echo "Target: $TARGET"
 
 # 1. Ensure remote permission (just in case udev rule failed)
-echo "--- Setting Remote Permissions ---"
-ssh $TARGET "sudo chmod 666 /dev/uinput" 
+# echo "--- Setting Remote Permissions ---"
+# ssh $TARGET "sudo chmod 666 /dev/uinput" 
 
 echo "--- Starting Link ---"
 echo "Press 'PAUSE' to toggle control."
