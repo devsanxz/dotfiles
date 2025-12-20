@@ -26,9 +26,10 @@ graph TD
     style B fill:#DD55FF,stroke:#fff,stroke-width:2px,color:#000
 ```
 
-## 🎨 Temas & Identidade Visual (v2.1)
+## 🎨 Temas & Identidade Visual (v2.7)
 O ecossistema utiliza a engine **Chameleon** para gerenciar 5 temas remasterizados com lógica de "Segurança Semântica":
 
+*   **Semiótica Humanizada:** Interface modernizada com Emojis semânticos na Waybar (🧠 CPU, 💭 RAM, 🌡️ Temp), trocando ícones técnicos por metáforas biológicas/cognitivas.
 *   **SANXZ4 (Flagship):** Violet-Base Dark Rainbow com lógica P-W-C-W (Intercalada).
 *   **Monored:** Escala monocromática vermelha (Sith/Focus).
 *   **Green Hill:** Escala monocromática verde (Matrix/CRT).
@@ -46,7 +47,7 @@ O ecossistema utiliza a engine **Chameleon** para gerenciar 5 temas remasterizad
 
 ## 🛠️ Automação SRE
 *   **Centralização:** Variáveis de ambiente e Autostart movidos para arquivos globais (`environment.conf`, `base.conf`) para evitar duplicação e conflitos de dependência.
-*   **Neural Link (KVM):** Controle remoto de periféricos (Teclado/Mouse) via túnel SSH/Netcat, bypassando o Wayland.
+*   **Neural Link (KVM):** Controle remoto de periféricos (Teclado/Mouse) via **Pipe SSH direto** (sem Netcat), acionado pelo alias `KVM` no terminal para máxima estabilidade.
 *   **Smart Audio:** Perfis de compressão dinâmica (Baby Mode vs Regular) gerenciados via script e atalhos.
 *   **Sync:** Fluxo de trabalho GitOps rigoroso (Edita no Arch -> Push -> Pull no Pi).
 *   **Documentação:** Guias técnicos (ex: `hyprctl dispatch`) versionados junto com a config.
