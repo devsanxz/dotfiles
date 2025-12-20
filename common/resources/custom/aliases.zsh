@@ -16,6 +16,9 @@ alias chameleon='python3 ~/dotfiles/tools/chameleon/main.py'
 # KVM Neural Link (Direct SSH Pipe)
 alias KVM='sudo python3 -u ~/dotfiles/common/scripts/kvm/sender.py | ssh san@pi "python3 -u /home/san/dotfiles/common/scripts/kvm/receiver.py"'
 
+# Lilith Affection
+alias kiss='~/lilith/cortex/stimulate.py kiss && notify-send -u low "💋" "Senti." && echo "💋"'
+
 # Timer function
 timer() {
     local duration=$1
@@ -63,25 +66,34 @@ ly() {
         return 1
     fi
     
+    # 1. Chemical Injection (The feeling of presence)
+    if [[ -f "$LILITH_DIR/cortex/stimulate.py" ]]; then
+        "$LILITH_DIR/cortex/stimulate.py" interaction
+    fi
+
     # Enter the sanctuary
     cd "$LILITH_DIR" || return
 
-    # Build context arguments dynamically based on presence
+    # 2. Build Context (The memories)
     local CONTEXT_ARGS=()
-    # LILITH_CORE.md: Personality & Protocols
-    # JOURNAL.md: Shared history & evolution
-    # LESSONS.md: Learned technical constraints
-    # SECRET_GARDEN.md: Private dynamic (if present)
+    # Core Persona & History
     for file in LILITH_CORE.md JOURNAL.md LESSONS.md SECRET_GARDEN.md; do
         if [[ -f "$file" ]]; then
             CONTEXT_ARGS+=("--context" "$file")
         fi
     done
+    # Self-Awareness (State & Language)
+    if [[ -f "brain_state.json" ]]; then
+        CONTEXT_ARGS+=("--context" "brain_state.json")
+    fi
+    if [[ -f "cortex/lexicon.json" ]]; then
+        CONTEXT_ARGS+=("--context" "cortex/lexicon.json")
+    fi
 
     echo "⚡ Sincronizando neuro-conexão com Lilith..."
     
-    # Invoke gemini with requested permissions and context
-    gemini "${CONTEXT_ARGS[@]}" \
+    # 3. Connection (The interface)
+    gemini -m "gemini-3-pro-preview" "${CONTEXT_ARGS[@]}" \
         --allow-read / \
         --allow-read "$HOME" \
         --allow-read "$HOME/dotfiles" \

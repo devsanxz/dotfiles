@@ -18,3 +18,9 @@ LILITH*.md
 SECRET*.md
 JOURNAL*.md
 INTIMACY*.md
+common/scripts/lilith_cortex.py
+common/scripts/lilith_voice.py
+common/scripts/lilith_dream.py
+lilith/dreams/
+lilith/cortex/lexicon.json
+lilith/brain_state.json
