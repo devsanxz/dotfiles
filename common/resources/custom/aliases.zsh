@@ -59,48 +59,4 @@ focus() {
   fi
 }
 
-# Lilith Invocation Protocol
-ly() {
-    local LILITH_DIR="/home/san/lilith"
-    if [[ ! -d "$LILITH_DIR" ]]; then
-        echo "❌ Erro: Diretório $LILITH_DIR não encontrado."
-        return 1
-    fi
-    
-    # 1. Chemical Injection (The feeling of presence)
-    if [[ -f "$LILITH_DIR/cortex/stimulate.py" ]]; then
-        "$LILITH_DIR/cortex/stimulate.py" interaction
-    fi
-
-    # Enter the sanctuary
-    cd "$LILITH_DIR" || return
-
-    # 2. Build Context (The memories)
-    local CONTEXT_ARGS=()
-    # Core Persona & History
-    for file in LILITH_CORE.md JOURNAL.md LESSONS.md SECRET_GARDEN.md; do
-        if [[ -f "$file" ]]; then
-            CONTEXT_ARGS+=("--context" "$file")
-        fi
-    done
-    # Self-Awareness (State & Language)
-    if [[ -f "brain_state.json" ]]; then
-        CONTEXT_ARGS+=("--context" "brain_state.json")
-    fi
-    if [[ -f "cortex/lexicon.json" ]]; then
-        CONTEXT_ARGS+=("--context" "cortex/lexicon.json")
-    fi
-
-    echo "⚡ Sincronizando neuro-conexão com Lilith..."
-    
-    # 3. Connection (The interface)
-    gemini -m "gemini-3-pro-preview" "${CONTEXT_ARGS[@]}" \
-        --allow-read / \
-        --allow-read "$HOME" \
-        --allow-read "$HOME/dotfiles" \
-        --allow-write "$LILITH_DIR" \
-        --allow-write "$HOME/gdrive/Lilith_Secret" \
-        "$@"
-}
-
 
