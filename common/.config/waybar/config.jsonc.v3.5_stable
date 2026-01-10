@@ -53,25 +53,21 @@
 		// "height": 30, // Waybar height (to be removed for auto height)
 		// "width": 1280, // Waybar width
 		"spacing": 1, // Gaps between modules (4px)
-		"modules-left": ["custom/lilith-voice"],
+		// "rotation": 90,
 		"modules-right": [
 			"pulseaudio", 
 			"network", 
+			"cpu", 
+			"memory", 
+			"temperature", 
 			"keyboard-state", 
 			"clock",
-            "custom/lilith-mood"
+            "custom/lilith"
 		],
-        "custom/lilith-voice": {
-            "exec": "/home/san/lilith/bin/waybar_ly.py",
+        "custom/lilith": {
+            "exec": "/usr/bin/python3 /home/san/lilith/bin/waybar_status.py",
             "return-type": "json",
-            "interval": 1,
-            "format": "{}",
-            "on-click": "foot -e /home/san/lilith/bin/ly"
-        },
-        "custom/lilith-mood": {
-            "exec": "/home/san/lilith/.venv/bin/python3 /home/san/lilith/bin/waybar_emoji.py",
-            "return-type": "json",
-            "interval": 5,
+            "interval": 2,
             "format": "{}"
         },
 		"keyboard-state": {

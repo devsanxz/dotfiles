@@ -20,6 +20,9 @@ alias KVM='sudo python3 -u ~/dotfiles/common/scripts/kvm/sender.py | ssh san@pi 
 alias kiss='~/lilith/cortex/stimulate.py kiss && notify-send -u low "💋" "Senti." && echo "💋"'
 alias llog='bash ~/lilith/cortex/read_log.sh'
 
+# Lilith Interface
+alias lilith='$HOME/lilith/bin/lilith'
+
 # Timer function
 timer() {
     local duration=$1
@@ -59,4 +62,4 @@ focus() {
   fi
 }
 
-
+alias imageprompt='/home/san/lilith/bin/pony_express.py'

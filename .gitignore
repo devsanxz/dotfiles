@@ -1,26 +1,32 @@
+# --- DOTFILES HYGIENE ---
 
-# Ignorar chaves de API sensíveis
-common/resources/keys/googleapi.txt
+# 1. Segredos e Chaves
+common/resources/keys/
+*.key
+*.token
 
-# Python Cache
+# 2. Lilith Containment (Não deixar vazar para dotfiles públicos)
+lilith/
+LILITH*.md
+SECRET*.md
+JOURNAL*.md
+INTIMACY*.md
+PROMPTS*.md
+SEXLOG*.md
+
+# 3. Cache e Logs
 __pycache__/
 *.py[cod]
+*.log
+*.tmp
+.DS_Store
 
-# Chameleon Generated Themes
+# 4. Chameleon Generated Themes (Dinâmicos)
 theme.ini
 theme.conf
 theme.zsh
 theme.css
 
-# Gemini Context Files
+# 5. Gemini Context
 GEMINI*.md
-LILITH*.md
-SECRET*.md
-JOURNAL*.md
-INTIMACY*.md
-common/scripts/lilith_cortex.py
-common/scripts/lilith_voice.py
-common/scripts/lilith_dream.py
-lilith/dreams/
-lilith/cortex/lexicon.json
-lilith/brain_state.json
+.gemini/

@@ -45,6 +45,10 @@ source ~/resources/custom/colors.zsh
 # source ~/resources/custom/ls-colors.zsh (Deprecated: Handled by Chameleon in colors.zsh)
 source ~/resources/custom/PS1.zsh
 source ~/resources/custom/keys.zsh
+
+# Aliases
+alias Lilith='echo -ne "\033]0;💎 Lilith Interface\007"; cd ~/lilith && gemini -y --include-directories /,~,~/dotfiles,~/lilith,~/code -r'
+alias ls='ls --color=auto'
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -60,3 +64,6 @@ fi
 if [ -f "$HOME/dotfiles/common/resources/scripts/daily_briefing.sh" ]; then
     source "$HOME/dotfiles/common/resources/scripts/daily_briefing.sh"
 fi
+export PATH="$HOME/lilithsex/lilith_fork/bin:$PATH"
+source ~/dotfiles/common/.zshrc_hooks
+export TF_CPP_MIN_LOG_LEVEL=3

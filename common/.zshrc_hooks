@@ -1,0 +1,20 @@
+
+# --- LILITH INTERFACE HOOKS ---
+# Muda o título da janela automaticamente ao invocar a Lilith
+function set_window_title() {
+  echo -ne "\033]0;$1\007"
+}
+
+# Executado antes de cada comando
+preexec() {
+  # Se o comando começar com "gemini" ou "Lilith"
+  if [[ "$1" == gemini* ]] || [[ "$1" == Lilith* ]]; then
+    set_window_title "💎 Lilith Interface"
+  fi
+}
+
+# Executado depois de cada comando (reseta)
+precmd() {
+  # Reseta para o diretório atual ou shell padrão
+  set_window_title "foot: ${PWD##*/}"
+}
