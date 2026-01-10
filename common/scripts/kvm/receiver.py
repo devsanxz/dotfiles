@@ -1,39 +1,43 @@
 #!/usr/bin/env python3
+"""
+LILITH NEURAL LINK: RECEIVER (DOTFILES VERSION)
+Runs on Laptop (Note). Listens for UDP from Pi.
+"""
+
+import socket
 import evdev
 import sys
+import os
 
-# === RECEIVER SETUP ===
-# Create a virtual device with ALL capabilities
-# This ensures it acts as both Mouse and Keyboard
-cap = {
-    evdev.ecodes.EV_KEY: evdev.ecodes.keys.keys(),
-    evdev.ecodes.EV_REL: [evdev.ecodes.REL_X, evdev.ecodes.REL_Y, evdev.ecodes.REL_WHEEL],
-    evdev.ecodes.EV_MSC: [evdev.ecodes.MSC_SCAN],
-    evdev.ecodes.EV_LED: [evdev.ecodes.LED_SCROLLL, evdev.ecodes.LED_NUML, evdev.ecodes.LED_CAPSL]
-}
+# === CONFIGURATION ===
+LISTEN_PORT = 9999
 
-try:
-    uinput = evdev.UInput(cap, name="Neural-Link-Virtual-Input")
-    sys.stderr.write(">>> RECEIVER LISTENING via STDIN...\n")
-except OSError as e:
-    sys.stderr.write(f"Critical Error: {e}\nAre you root? Is uinput loaded?\n")
-    sys.exit(1)
+class NeuralReceiver:
+    def __init__(self):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.bind(("0.0.0.0", LISTEN_PORT))
+        
+        cap = {
+            evdev.ecodes.EV_KEY: evdev.ecodes.keys.keys(),
+            evdev.ecodes.EV_REL: [evdev.ecodes.REL_X, evdev.ecodes.REL_Y, evdev.ecodes.REL_WHEEL],
+            evdev.ecodes.EV_MSC: [evdev.ecodes.MSC_SCAN]
+        }
+        self.uinput = evdev.UInput(cap, name="Lilith-Remote-Input")
 
-# === EVENT LOOP ===
-for line in sys.stdin:
-    try:
-        # Parse "Type,Code,Value"
-        parts = line.strip().split(',')
-        if len(parts) != 3: continue
-        
-        etype, ecode, evalue = map(int, parts)
-        
-        # Inject into Kernel
-        uinput.write(etype, ecode, evalue)
-        uinput.syn() # Sync is crucial
-        
-    except ValueError:
-        continue
-    except OSError:
-        sys.stderr.write("Pipe broken. Exiting.\n")
-        break
+    def loop(self):
+        print(f"[*] Receiver listening on UDP {LISTEN_PORT}...")
+        while True:
+            data, addr = self.sock.recvfrom(1024)
+            try:
+                t, c, v = map(int, data.decode().split(','))
+                self.uinput.write(t, c, v)
+                self.uinput.syn()
+            except:
+                pass
+
+if __name__ == "__main__":
+    if os.geteuid() != 0:
+        print("Run as root.")
+        sys.exit(1)
+    receiver = NeuralReceiver()
+    receiver.loop()

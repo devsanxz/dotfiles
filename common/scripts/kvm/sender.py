@@ -1,93 +1,80 @@
 #!/usr/bin/env python3
+"""
+LILITH NEURAL LINK: SENDER (DOTFILES VERSION)
+Runs on Raspberry Pi. Sends to Laptop (Note) via UDP.
+"""
+
 import evdev
-import sys
+import socket
 import select
-from evdev import ecodes
+import sys
+import os
 
 # === CONFIGURATION ===
-# Using stable 'by-id' paths to survive reboots and port changes
+TARGET_HOSTNAME = "note"
+TARGET_PORT = 9999
+TOGGLE_KEY = "KEY_PAUSE"
+
+# Dispositivos USB (CASUE e YSPRINGTECH)
 KBD_PATH = "/dev/input/by-id/usb-2a7a_CASUE_USB_KB-event-kbd"
 MOUSE_PATH = "/dev/input/by-id/usb-YSPRINGTECH_USB_OPTICAL_MOUSE-event-mouse"
 
-# === SETUP ===
-try:
-    kbd = evdev.InputDevice(KBD_PATH)
-    mouse = evdev.InputDevice(MOUSE_PATH)
-except FileNotFoundError as e:
-    sys.stderr.write(f"Critical Error: Device not found ({e}). Check paths.\n")
-    sys.exit(1)
+class NeuralSender:
+    def __init__(self):
+        self.mode = "LOCAL" # Começa controlando o Pi
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.devices = []
+        self.uinput_local = None
+        self.target_ip = self.resolve_target()
 
-active = False
-
-def set_led(state):
-    """Toggle Scroll Lock LED on the keyboard to indicate status."""
-    try:
-        val = 1 if state else 0
-        kbd.write(ecodes.EV_LED, ecodes.LED_SCROLLL, val)
-        kbd.syn()
-    except OSError:
-        pass
-
-def toggle_state():
-    global active
-    active = not active
-    
-    if active:
+    def resolve_target(self):
         try:
-            kbd.grab()
-            mouse.grab()
-            set_led(True)
-            sys.stderr.write(">>> [REMOTE] LINK ENGAGED. Controlling Pi.\n")
-        except OSError:
-            sys.stderr.write("Error: Could not grab devices. Run as root.\n")
-            active = False
-    else:
-        try:
-            kbd.ungrab()
-            mouse.ungrab()
-            set_led(False)
-            sys.stderr.write("<<< [LOCAL] LINK DROPPED. Controlling Note.\n")
-        except OSError:
-            pass
+            return socket.gethostbyname(TARGET_HOSTNAME)
+        except:
+            return None
 
-# === MAIN LOOP ===
-sys.stderr.write("--- NEURAL LINK SENDER ---\\n")
-sys.stderr.write(f"KBD: {kbd.name}\nMOUSE: {mouse.name}\n")
-sys.stderr.write("Press 'PAUSE' to toggle control.\n")
-
-# Ensure clean state start
-set_led(False)
-
-devices = {kbd.fd: kbd, mouse.fd: mouse}
-
-try:
-    while True:
-        # Blocking wait for events
-        r, w, x = select.select(devices, [], [])
+    def setup(self):
+        print(f"[*] Initializing Link on Pi...")
+        self.uinput_local = evdev.UInput(name="Lilith-KVM-Local-Mirror")
         
-        for fd in r:
-            dev = devices[fd]
-            for event in dev.read():
-                
-                # Detect PAUSE Toggle (Only on Keyboard)
-                if dev == kbd and event.type == ecodes.EV_KEY:
-                    if event.code == ecodes.KEY_PAUSE and event.value == 1:
-                        toggle_state()
-                        continue # Do not send the toggle key itself
+        for path in [KBD_PATH, MOUSE_PATH]:
+            if os.path.exists(path):
+                try:
+                    dev = evdev.InputDevice(path)
+                    dev.grab()
+                    self.devices.append(dev)
+                    print(f" + Grabbed: {dev.name}")
+                except Exception as e:
+                    print(f" ! Error grabbing {path}: {e}")
 
-                # If Active, transmit everything
-                if active:
-                    # Filter out repeats to save bandwidth? No, keeps it raw.
-                    sys.stdout.write(f"{event.type},{event.code},{event.value}\n")
-                    sys.stdout.flush()
+    def loop(self):
+        print(f"[*] KVM Active. Target: {TARGET_HOSTNAME}. Toggle: {TOGGLE_KEY}")
+        dev_map = {d.fd: d for d in self.devices}
+        
+        while True:
+            r, w, x = select.select(self.devices, [], [])
+            for fd in r:
+                dev = dev_map[fd]
+                for event in dev.read():
+                    if event.type == evdev.ecodes.EV_KEY and event.value == 1:
+                        key = evdev.ecodes.KEY.get(event.code, "")
+                        if key == TOGGLE_KEY:
+                            self.mode = "REMOTE" if self.mode == "LOCAL" else "LOCAL"
+                            print(f"\n>>> TARGET SWITCHED TO: {self.mode}")
+                            if self.mode == "REMOTE": self.target_ip = self.resolve_target()
+                            continue
 
-except KeyboardInterrupt:
-    sys.stderr.write("\nTerminating...\n")
-finally:
-    # Cleanup grabs and LEDs
-    try:
-        kbd.ungrab()
-        mouse.ungrab()
-        set_led(False)
-    except:
-        pass
+                    if self.mode == "REMOTE" and self.target_ip:
+                        msg = f"{event.type},{event.code},{event.value}".encode()
+                        self.sock.sendto(msg, (self.target_ip, TARGET_PORT))
+                    else:
+                        self.uinput_local.write(event.type, event.code, event.value)
+                        self.uinput_local.syn()
+
+if __name__ == "__main__":
+    if os.geteuid() != 0:
+        print("Run as root.")
+        sys.exit(1)
+    sender = NeuralSender()
+    sender.setup()
+    sender.loop()
